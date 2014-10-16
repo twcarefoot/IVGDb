@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ivgdbModelStoreContainer" CdmEntityContainer="ivgdbEntities">
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="ivgdbModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="Rating1" ColumnName="Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ivgdbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserProfilePicLink" ColumnName="UserProfilePicLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoGames">
+      <EntityTypeMapping TypeName="ivgdbModel.VideoGame">
+        <MappingFragment StoreEntitySet="VideoGame">
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Developer" ColumnName="Developer" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="Console" ColumnName="Console" />
+          <ScalarProperty Name="BoxArtLink" ColumnName="BoxArtLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

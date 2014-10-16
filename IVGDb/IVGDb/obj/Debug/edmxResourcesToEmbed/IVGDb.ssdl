@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ivgdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="GameID" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="VideoGame">
+    <Key>
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="GameID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="15" />
+    <Property Name="Developer" Type="nvarchar(max)" />
+    <Property Name="ReleaseDate" Type="datetime2" Precision="7" />
+    <Property Name="Console" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BoxArtLink" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Rating_Game">
+    <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
+    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoGame">
+        <PropertyRef Name="GameID" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rating_UserID">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ivgdbModelStoreContainer">
+    <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoGame" EntityType="Self.VideoGame" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
+      <End Role="VideoGame" EntitySet="VideoGame" />
+      <End Role="Rating" EntitySet="Rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rating_UserID" Association="Self.FK_Rating_UserID">
+      <End Role="User" EntitySet="User" />
+      <End Role="Rating" EntitySet="Rating" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
