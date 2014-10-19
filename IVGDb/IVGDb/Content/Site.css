@@ -2,27 +2,23 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
 }
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
-
 /* Container */
 .container-fluid, #News-section {
     background: #fbf4e0;
@@ -31,8 +27,6 @@ textarea {
     max-width: 960px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-
-
 /* Page Header */
 .page-header {
     background: #fbf4e0;
@@ -46,9 +40,6 @@ textarea {
         line-height: 0.88rem;
         color: #a83b3b;
         }
-
-
-
 /* Thumbnail Box */
 .caption {
     height: 140px;
@@ -65,7 +56,6 @@ textarea {
     .caption .span4 {
         border-right: 1px dotted #CCCCCC;
     }
-
 .caption h3 {
     color: #a83b3b;
     line-height: 2rem;
@@ -87,23 +77,25 @@ textarea {
 .carousel-control {
     top: 33%;
 }
-
 .carousel-control.left, .carousel-control.right {
     background-image: none !important;
 }
-
 .container-fluid, #News-section {
     background: none;
     box-shadow: none;
 }
-
 #Search-bar {
     width: 419px;
     height: 28px;
     margin-top: 10px;
     margin-left: 225px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-top-left-radius: 4px;
+    -moz-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
 }
-
 #Search-btn {
     width: 80px;
     height: 28px;
@@ -117,10 +109,19 @@ textarea {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-
+#Search-btn-span img {
+    margin-bottom: -1px;
+}
 #News-section {
     margin-top: 0;
 }
-
 .play-entry {margin-bottom: 50px;}
 .play-entry .span3 {padding-top:25px;}
+.registration-section { padding-bottom: 10px; }
+.registration-section input { 
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    width: 250px;
+}
+#Register-btn { margin-left: 15px; }

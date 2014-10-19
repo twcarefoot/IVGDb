@@ -9,7 +9,7 @@ namespace IVGDb.Models
     {
         public string ConfirmPassword { get; set; }
 
-        private static ivgdbEntities db = new ivgdbEntities();
+        private static ivgdb_Entities db = new ivgdb_Entities();
 
         public static User GetUser(string email)
         {
@@ -35,7 +35,6 @@ namespace IVGDb.Models
             newUser.UserProfilePicLink = null;
             db.Users.Add(newUser);
             db.SaveChanges();
-            db.Dispose();
         }
     }
 }

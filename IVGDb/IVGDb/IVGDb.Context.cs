@@ -13,10 +13,10 @@ namespace IVGDb
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ivgdbEntities : DbContext
+    public partial class ivgdb_Entities : DbContext
     {
-        public ivgdbEntities()
-            : base("name=ivgdbEntities")
+        public ivgdb_Entities()
+            : base("name=ivgdb_Entities")
         {
         }
     

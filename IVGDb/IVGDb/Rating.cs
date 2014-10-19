@@ -14,9 +14,9 @@ namespace IVGDb
     
     public partial class Rating
     {
-        public int UserID { get; set; }
-        public int GameID { get; set; }
-        public int Rating1 { get; set; }
+        public int FKUserID { get; set; }
+        public int FKGameID { get; set; }
+        public Nullable<int> Rating1 { get; set; }
     
         public virtual VideoGame VideoGame { get; set; }
         public virtual User User { get; set; }

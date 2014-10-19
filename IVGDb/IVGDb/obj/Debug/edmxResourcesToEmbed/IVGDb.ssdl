@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ivgdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ivgdb_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Rating">
     <Key>
-      <PropertyRef Name="UserID" />
-      <PropertyRef Name="GameID" />
+      <PropertyRef Name="FKUserID" />
+      <PropertyRef Name="FKGameID" />
     </Key>
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="GameID" Type="int" Nullable="false" />
-    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="FKUserID" Type="int" Nullable="false" />
+    <Property Name="FKGameID" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="int" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="VideoGame">
     <Key>
       <PropertyRef Name="GameID" />
     </Key>
-    <Property Name="GameID" Type="int" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Publisher" Type="nvarchar" MaxLength="15" />
-    <Property Name="Developer" Type="nvarchar(max)" />
-    <Property Name="ReleaseDate" Type="datetime2" Precision="7" />
-    <Property Name="Console" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="75" />
+    <Property Name="Developer" Type="nvarchar" MaxLength="75" />
+    <Property Name="ReleaseDate" Type="datetime" />
+    <Property Name="Console" Type="nvarchar" MaxLength="50" />
     <Property Name="BoxArtLink" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK_Rating_Game">
@@ -39,11 +39,11 @@
         <PropertyRef Name="GameID" />
       </Principal>
       <Dependent Role="Rating">
-        <PropertyRef Name="GameID" />
+        <PropertyRef Name="FKGameID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Rating_UserID">
+  <Association Name="FK_Rating_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
     <ReferentialConstraint>
@@ -51,11 +51,11 @@
         <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Rating">
-        <PropertyRef Name="UserID" />
+        <PropertyRef Name="FKUserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ivgdbModelStoreContainer">
+  <EntityContainer Name="ivgdb_ModelStoreContainer">
     <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoGame" EntityType="Self.VideoGame" Schema="dbo" store:Type="Tables" />
@@ -63,7 +63,7 @@
       <End Role="VideoGame" EntitySet="VideoGame" />
       <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>
-    <AssociationSet Name="FK_Rating_UserID" Association="Self.FK_Rating_UserID">
+    <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
       <End Role="User" EntitySet="User" />
       <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>
