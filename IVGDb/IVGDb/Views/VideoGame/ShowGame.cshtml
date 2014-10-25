@@ -1,6 +1,6 @@
 ﻿@using IVGDb.Models;
 
-@model VideoGameViewModel
+@model VideoGame
 
 @{
     ViewBag.Title = "Show Game";
@@ -10,4 +10,20 @@
 
 <p>
     <img src="@Html.DisplayFor(m => m.BoxArtLink)" />
+</p>
+<p>
+    @Html.LabelFor(m => m.Publisher)
+    @Html.DisplayFor(m => m.Publisher)
+</p>
+<p>
+    @Html.LabelFor(m => m.Developer)
+    @Html.DisplayFor(m => m.Developer)
+</p>
+<p>
+    @Html.LabelFor(m => m.ReleaseDate)
+    @Html.DisplayFor(m => m.ReleaseDate)
+</p>
+<p>
+    @Html.LabelFor(m => m.Console)
+    @Html.DisplayFor(m => m.Console)
 </p>
