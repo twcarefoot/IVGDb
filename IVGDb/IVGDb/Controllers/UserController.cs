@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IVGDb.Models;
+using System.Web.Security;
 
 namespace IVGDb.Controllers
 {
@@ -12,6 +13,30 @@ namespace IVGDb.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (ivgdb_Entities db = new ivgdb_Entities())
+                {
+                    string username = model.Username;
+                    string password = model.Password;
+
+                    bool userValid = db.Users.Any(p => p.Username == username && p.Password == password);
+
+                    if (userValid)
+                    {
+                        FormsAuthentication.SetAuthCookie(username, false);
+                        Session["LoggedIn"] = true;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+            }
+
+            return View(model);
         }
 
         public ActionResult Register()

@@ -15,9 +15,10 @@
     </Key>
     <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
+    <Property Name="EmailedConfirmed" Type="bit" />
   </EntityType>
   <EntityType Name="VideoGame">
     <Key>

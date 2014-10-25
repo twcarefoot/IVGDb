@@ -20,9 +20,10 @@
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
+          <Property Name="EmailedConfirmed" Type="bit" />
         </EntityType>
         <EntityType Name="VideoGame">
           <Key>
@@ -94,10 +95,11 @@
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserProfilePicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
+          <Property Name="EmailedConfirmed" Type="Boolean" />
         </EntityType>
         <EntityType Name="VideoGame">
           <Key>
@@ -167,6 +169,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ivgdb_Model.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="EmailedConfirmed" ColumnName="EmailedConfirmed" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

@@ -24,6 +24,7 @@ namespace IVGDb
         public string Password { get; set; }
         public string Email { get; set; }
         public string UserProfilePicLink { get; set; }
+        public Nullable<bool> EmailedConfirmed { get; set; }
     
         public virtual ICollection<Rating> Ratings { get; set; }
     }

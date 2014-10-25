@@ -107,3 +107,4 @@ C:\Projects\IVGDb\IVGDb\IVGDb\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projects\IVGDb\IVGDb\IVGDb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.dll
 C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.pdb
+C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.csprojResolveAssemblyReference.cache

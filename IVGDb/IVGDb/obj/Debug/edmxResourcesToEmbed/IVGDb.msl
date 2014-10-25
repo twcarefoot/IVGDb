@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="ivgdb_Model.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="EmailedConfirmed" ColumnName="EmailedConfirmed" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />

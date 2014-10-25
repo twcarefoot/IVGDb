@@ -11,6 +11,7 @@ namespace IVGDb
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class VideoGame
     {
@@ -19,6 +20,7 @@ namespace IVGDb
             this.Ratings = new HashSet<Rating>();
         }
     
+        [Key]
         public int GameID { get; set; }
         public string Title { get; set; }
         public string Publisher { get; set; }
