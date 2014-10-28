@@ -27,6 +27,16 @@ namespace IVGDb.Controllers
             return RedirectToAction("Index", game);
         }
 
+        [HttpPost]
+        public ActionResult SearchGame(string title)
+        {
+            VideoGame game = new VideoGameViewModel();
+
+            game = VideoGameViewModel.GetGameByTitle(title);
+
+            return RedirectToAction("Index", game);
+        }
+
         public ActionResult ShowGame(int? gameID)
         {
             if (gameID != null)
