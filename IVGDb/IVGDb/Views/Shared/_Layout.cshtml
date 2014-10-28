@@ -22,10 +22,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                 </ul>                 
-                <input type="text" id="Search-bar" placeholder="Find Games, Developers, and more..." />
+                @*<input type="text" id="Search-bar" placeholder="Find Games, Developers, and more..." />
                 <button type="submit" id="Search-btn" name="search-submit">
                     <span id="Search-btn-span"><img src="~/Images/maglss.png" /></span>
-                </button>              
+                </button>*@  
+                @Html.Partial("_SearchBar")            
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

@@ -1,0 +1,17 @@
+﻿@model List<VideoGame>
+
+@{
+    ViewBag.Title = "ShowAllGames";
+}
+
+<h2>ShowAllGames</h2>
+
+@foreach (var game in Model)
+{ 
+    <p>
+        @game.Title.ToString()
+    </p>
+    <p>
+        @game.Publisher.ToString();
+    </p>
+}

@@ -6,24 +6,31 @@
     ViewBag.Title = "Show Game";
 }
 
-<h2>@Html.DisplayFor(m => m.Title)</h2>
+@if (Model != null)
+{
+    <h2>@Html.DisplayFor(m => m.Title)</h2>
 
-<p>
-    <img src="@Html.DisplayFor(m => m.BoxArtLink)" />
-</p>
-<p>
-    @Html.LabelFor(m => m.Publisher)
-    @Html.DisplayFor(m => m.Publisher)
-</p>
-<p>
-    @Html.LabelFor(m => m.Developer)
-    @Html.DisplayFor(m => m.Developer)
-</p>
-<p>
-    @Html.LabelFor(m => m.ReleaseDate)
-    @Html.DisplayFor(m => m.ReleaseDate)
-</p>
-<p>
-    @Html.LabelFor(m => m.Console)
-    @Html.DisplayFor(m => m.Console)
-</p>
+    <p>
+        <img src="@Html.DisplayFor(m => m.BoxArtLink)" />
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Publisher)
+        @Html.DisplayFor(m => m.Publisher)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Developer)
+        @Html.DisplayFor(m => m.Developer)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.DisplayFor(m => m.ReleaseDate)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Console)
+        @Html.DisplayFor(m => m.Console)
+    </p>
+}
+else
+{
+    <h2>Sorry, the title you're looking for was not found</h2>
+}

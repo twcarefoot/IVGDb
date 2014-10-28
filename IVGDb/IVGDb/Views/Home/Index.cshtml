@@ -5,77 +5,79 @@
 
 <script type="text/javascript" src="~/Scripts/IVGDbScripts/CarouselScript.js"></script>
 
-<!-- http://codepen.io/redfrost/pen/dbrgk -->
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
+<div id="Main-page-block-top">
+    <!-- http://codepen.io/redfrost/pen/dbrgk -->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
 
-            <div class="carousel slide" id="myCarousel">
-                <div class="carousel-inner">
+                <div class="carousel slide" id="myCarousel">
+                    <div class="carousel-inner">
 
-                    <div class="item active">
+                        <div class="item active">
 
-                        <div class="bannerImage">
-                            <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="405"></a>
-                        </div>
-
-                        <div class="caption row-fluid">
-                            <div class="span4">
-                                <h3>Megaman X2</h3>
+                            <div class="bannerImage">
+                                <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="405"></a>
                             </div>
-                            <div class="span8">
-                                <p>Arguably the greatest Megaman entry in the entire series.</p>
+
+                            <div class="caption row-fluid">
+                                <div class="span4">
+                                    <h3>Megaman X2</h3>
+                                </div>
+                                <div class="span8">
+                                    <p>Arguably the greatest Megaman entry in the entire series.</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div><!-- /Slide1 -->
+                        </div><!-- /Slide1 -->
 
-                    <div class="item">
+                        <div class="item">
 
-                        <div class="bannerImage">
-                            <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="405"></a>
-                        </div>
-
-                        <div class="caption row-fluid">
-                            <div class="span4">
-                                <h3>Super Castlevania 4</h3>
+                            <div class="bannerImage">
+                                <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="405"></a>
                             </div>
-                            <div class="span8">
-                                <p>Simon Belmont is on the hunt for Dracula's head!</p>
+
+                            <div class="caption row-fluid">
+                                <div class="span4">
+                                    <h3>Super Castlevania 4</h3>
+                                </div>
+                                <div class="span8">
+                                    <p>Simon Belmont is on the hunt for Dracula's head!</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div><!-- /Slide2 -->
+                        </div><!-- /Slide2 -->
 
-                    <div class="item">
+                        <div class="item">
 
-                        <div class="bannerImage">
-                            <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="405"></a>
-                        </div>
-
-                        <div class="caption row-fluid">
-                            <div class="span4">
-                                <h3>Chrono Trigger</h3>
+                            <div class="bannerImage">
+                                <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="405"></a>
                             </div>
-                            <div class="span8">
-                                <p>The greatest RPG, and videogame, in the history of videogames.</p>
+
+                            <div class="caption row-fluid">
+                                <div class="span4">
+                                    <h3>Chrono Trigger</h3>
+                                </div>
+                                <div class="span8">
+                                    <p>The greatest RPG, and videogame, in the history of videogames.</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div><!-- /Slide3 -->
+                        </div><!-- /Slide3 -->
 
-                </div>
+                    </div>
 
-                <div class="control-box">
-                    <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-                    <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-                </div><!-- /.control-box -->
+                    <div class="control-box">
+                        <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+                        <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+                    </div><!-- /.control-box -->
 
-            </div><!-- /#myCarousel -->
+                </div><!-- /#myCarousel -->
 
-        </div><!-- /.span12 -->
-    </div><!-- /.row -->
-</div><!-- /.container -->
+            </div><!-- /.span12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
 <div id="News-section">
     <h2>In the News</h2>
     @Html.Partial("_NewsFeed")

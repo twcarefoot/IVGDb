@@ -76,6 +76,8 @@ textarea {
             }
 .carousel-control {
     top: 33%;
+    margin-top: -193px;
+    padding-top: 250px;
 }
 .carousel-control.left, .carousel-control.right {
     background-image: none !important;
@@ -112,6 +114,7 @@ textarea {
 #Search-btn-span img {
     margin-bottom: -1px;
 }
+#Search-bar-form { float: left; }
 #News-section {
     margin-top: 0;
 }
@@ -131,7 +134,8 @@ textarea {
     margin: 0 auto;
     width: 100%;
 }
-
+#Main-page-block-top { 
+}
 /* Login Menu */
 #container {
 	width:700px;

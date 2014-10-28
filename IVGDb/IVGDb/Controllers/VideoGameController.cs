@@ -24,29 +24,32 @@ namespace IVGDb.Controllers
 
             game = VideoGameViewModel.GetGameByTitle(title);
 
-            return RedirectToAction("Index", game);
+            return RedirectToAction("ShowGame", game);
         }
 
-        [HttpPost]
-        public ActionResult SearchGame(string title)
+        public ActionResult ShowGame(VideoGameViewModel game, int? gameID)
         {
-            VideoGame game = new VideoGameViewModel();
-
-            game = VideoGameViewModel.GetGameByTitle(title);
-
-            return RedirectToAction("Index", game);
-        }
-
-        public ActionResult ShowGame(int? gameID)
-        {
+            if (gameID == null && game != null)
+            {
+                VideoGame newgame = new VideoGameViewModel();
+                newgame = VideoGameViewModel.GetGameByTitle(game.Title);
+                return View(newgame);
+            }
             if (gameID != null)
             {
-                VideoGame game = new VideoGameViewModel();
-                game = VideoGameViewModel.GetGameByID((int)gameID);
+                VideoGame newgame = new VideoGameViewModel();
+                newgame = VideoGameViewModel.GetGameByID((int)gameID);
                 return View(game);
             }
 
             return View();
+        }
+
+        public ActionResult ShowAllGames()
+        {
+            List<VideoGame> list = new List<VideoGame>();
+            list = VideoGameViewModel.GetAllGames();
+            return View(list);
         }
     }
 }
