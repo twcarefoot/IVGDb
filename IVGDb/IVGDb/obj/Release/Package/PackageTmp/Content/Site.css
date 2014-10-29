@@ -1,28 +1,25 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #999995;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
 }
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
-
 /* Container */
 .container-fluid, #News-section {
     background: #fbf4e0;
@@ -31,8 +28,6 @@ textarea {
     max-width: 960px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-
-
 /* Page Header */
 .page-header {
     background: #fbf4e0;
@@ -46,9 +41,6 @@ textarea {
         line-height: 0.88rem;
         color: #a83b3b;
         }
-
-
-
 /* Thumbnail Box */
 .caption {
     height: 140px;
@@ -65,7 +57,6 @@ textarea {
     .caption .span4 {
         border-right: 1px dotted #CCCCCC;
     }
-
 .caption h3 {
     color: #a83b3b;
     line-height: 2rem;
@@ -86,24 +77,28 @@ textarea {
             }
 .carousel-control {
     top: 33%;
+    padding-top: 200px;
+    margin-top: -193px;
 }
-
 .carousel-control.left, .carousel-control.right {
     background-image: none !important;
 }
-
 .container-fluid, #News-section {
     background: none;
     box-shadow: none;
 }
-
 #Search-bar {
     width: 419px;
     height: 28px;
     margin-top: 10px;
     margin-left: 225px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -moz-border-top-left-radius: 4px;
+    -moz-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
 }
-
 #Search-btn {
     width: 80px;
     height: 28px;
@@ -117,10 +112,115 @@ textarea {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-
+#Search-btn-span img {
+    margin-bottom: -1px;
+}
 #News-section {
     margin-top: 0;
 }
-
+.play-info-section { margin-bottom: 50px; }
 .play-entry {margin-bottom: 50px;}
 .play-entry .span3 {padding-top:25px;}
+.registration-section { padding-bottom: 10px; }
+.registration-section input { 
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    width: 250px;
+}
+#Register-btn { margin-left: 15px; }
+#Search-form { float: left; }
+
+.bannerImage a img {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Login Menu */
+#container {
+	width:700px;
+	margin:0 auto;
+	padding:13px 10px;
+	border:1px solid #999;
+}
+a.btnsignin, a.btnsignout {
+	background:#999;
+	padding:5px 8px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+a.btnsignin:hover, a.btnsignout:hover {
+	background:#666;
+}
+a.btnsigninon {
+	background:#ccc!important;
+	color:#666!important;
+	outline:none;
+}
+#frmsignin {
+	display:none;
+	background-color:#ccc;
+	position:absolute;
+	top: 59px;
+	width:215px;
+	padding:12px;
+	*margin-top: 5px;
+	font-size:11px;
+	-moz-border-radius:5px;
+	-moz-border-radius-topleft:0;
+	-webkit-border-radius:5px;
+	-webkit-border-top-left-radius:0;
+	border-radius:5px;
+	border-top-left-radius:0;
+	z-index:100;
+}
+#frmsignin input[type=text], #frmsignin input[type=password] {
+	display:block;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #666;
+	margin:0 0 5px;
+	padding:5px;
+	width:203px;
+}
+#frmsignin p {
+	margin:0;
+}
+#frmsignin label {
+	font-weight:normal;
+}
+#submitbtn {
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	background-color:#333;
+	border:1px solid #fff;
+	color:#fff;
+	padding:5px 8px;
+	margin:0 5px 0 0;
+	font-weight:bold;
+}
+#submitbtn:hover, #submitbtn:focus {
+	border:1px solid #000;
+	cursor:pointer;
+}
+.submit {
+	padding-top:5px;
+}
+#msg {
+	color:#F00;
+}
+#msg img {
+	margin-bottom:-3px;
+}
+#msg p {
+	margin:5px 0;
+}
+#msg p:last-child {
+	margin-bottom:0px;
+}

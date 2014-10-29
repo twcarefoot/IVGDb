@@ -11,202 +11,220 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="bin/IVGDb.dll">
-      <publishTime>10/18/2014 16:17:05</publishTime>
+      <publishTime>10/25/2014 18:03:33</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Google.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:24</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:23</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>10/18/2014 13:42:28</publishTime>
+      <publishTime>10/19/2014 14:07:24</publishTime>
     </File>
     <File Include="Content/bootstrap-responsive.min.css">
-      <publishTime>10/18/2014 15:56:23</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>10/18/2014 16:10:05</publishTime>
+      <publishTime>10/25/2014 17:55:49</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:24</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:25</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:25</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:25</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:25</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
+    </File>
+    <File Include="Images/loading.gif">
+      <publishTime>10/25/2014 13:50:34</publishTime>
     </File>
     <File Include="Images/maglss.png">
-      <publishTime>10/18/2014 14:49:43</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="IVGDb.edmx.diagram">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 16:19:46</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/18/2014 13:42:27</publishTime>
+      <publishTime>10/19/2014 14:07:25</publishTime>
     </File>
     <File Include="Scripts/bootstrap-responsive.min.css">
-      <publishTime>10/18/2014 15:57:36</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>10/18/2014 13:42:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/IVGDbScripts/CarouselScript.js">
-      <publishTime>10/18/2014 14:23:25</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
+    </File>
+    <File Include="Scripts/IVGDbScripts/jqeasy.dropdown.js">
+      <publishTime>10/25/2014 13:49:55</publishTime>
+    </File>
+    <File Include="Scripts/IVGDbScripts/jqeasy.dropdown.min.js">
+      <publishTime>10/25/2014 13:49:55</publishTime>
+    </File>
+    <File Include="Scripts/IVGDbScripts/jquery.form-2.4.0.min.js">
+      <publishTime>10/25/2014 13:49:55</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>10/18/2014 14:23:19</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/18/2014 15:49:38</publishTime>
+      <publishTime>10/25/2014 15:14:29</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/18/2014 15:56:25</publishTime>
+      <publishTime>10/25/2014 17:27:09</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>10/18/2014 13:59:10</publishTime>
+      <publishTime>10/25/2014 15:01:10</publishTime>
     </File>
     <File Include="Views/Shared/_NewsFeed.cshtml">
-      <publishTime>10/18/2014 16:04:44</publishTime>
+      <publishTime>10/25/2014 14:36:41</publishTime>
     </File>
     <File Include="Views/Shared/_SearchBar.cshtml">
-      <publishTime>10/18/2014 14:51:08</publishTime>
+      <publishTime>10/25/2014 17:30:07</publishTime>
     </File>
     <File Include="Views/User/Register.cshtml">
-      <publishTime>10/18/2014 14:07:07</publishTime>
+      <publishTime>10/19/2014 15:44:55</publishTime>
+    </File>
+    <File Include="Views/VideoGame/Index.cshtml">
+      <publishTime>10/25/2014 14:48:58</publishTime>
+    </File>
+    <File Include="Views/VideoGame/ShowGame.cshtml">
+      <publishTime>10/25/2014 17:35:26</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>10/18/2014 13:42:26</publishTime>
+      <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/18/2014 16:17:06</publishTime>
+      <publishTime>10/25/2014 18:03:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

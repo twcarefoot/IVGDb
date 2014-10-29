@@ -1,0 +1,13 @@
+﻿@using IVGDb.Models;
+
+@model VideoGameViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.DisplayFor(m => m.Title)</h2>
+
+<p>
+    <img src="@Html.DisplayFor(m => m.BoxArtLink)" />
+</p>

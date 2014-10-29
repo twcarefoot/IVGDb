@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #999995;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -129,6 +130,7 @@ textarea {
     width: 250px;
 }
 #Register-btn { margin-left: 15px; }
+#Search-form { float: left; }
 
 .bannerImage a img {
     margin: 0 auto;

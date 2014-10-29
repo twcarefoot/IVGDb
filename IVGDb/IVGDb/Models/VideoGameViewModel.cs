@@ -12,7 +12,10 @@ namespace IVGDb.Models
 
         public static VideoGame GetGameByID(int gameID)
         {
-            return db.VideoGames.Where(p => p.GameID == gameID).First();
+            if (db.VideoGames.Any(p => p.GameID == gameID))
+                return db.VideoGames.Where(p => p.GameID == gameID).FirstOrDefault();
+            else
+                return null;
         }
 
         public static VideoGame GetGameByTitle(string title)

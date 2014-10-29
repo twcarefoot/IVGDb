@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - IVGDb</title>
+    <title>IVGDb</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -21,9 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                </ul>
-                <input type="text" id="Search-bar" placeholder="Find Games, Developers, and more..." />
-                @*<button type="submit" id="Search-btn" name="search-submit"></button>*@
+                </ul>                 
+                @*<input type="text" id="Search-bar" placeholder="Find Games, Developers, and more..." />
+                <button type="submit" id="Search-btn" name="search-submit">
+                    <span id="Search-btn-span"><img src="~/Images/maglss.png" /></span>
+                </button>*@
+                @Html.Partial("_SearchBar")
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

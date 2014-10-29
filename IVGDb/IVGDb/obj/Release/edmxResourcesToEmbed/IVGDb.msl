@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ivgdbModelStoreContainer" CdmEntityContainer="ivgdbEntities">
+  <EntityContainerMapping StorageEntityContainer="ivgdb_ModelStoreContainer" CdmEntityContainer="ivgdb_Entities">
     <EntitySetMapping Name="Ratings">
-      <EntityTypeMapping TypeName="ivgdbModel.Rating">
+      <EntityTypeMapping TypeName="ivgdb_Model.Rating">
         <MappingFragment StoreEntitySet="Rating">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="FKUserID" ColumnName="FKUserID" />
+          <ScalarProperty Name="FKGameID" ColumnName="FKGameID" />
           <ScalarProperty Name="Rating1" ColumnName="Rating" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ivgdbModel.User">
+      <EntityTypeMapping TypeName="ivgdb_Model.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="EmailedConfirmed" ColumnName="EmailedConfirmed" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -22,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VideoGames">
-      <EntityTypeMapping TypeName="ivgdbModel.VideoGame">
+      <EntityTypeMapping TypeName="ivgdb_Model.VideoGame">
         <MappingFragment StoreEntitySet="VideoGame">
           <ScalarProperty Name="GameID" ColumnName="GameID" />
           <ScalarProperty Name="Title" ColumnName="Title" />

@@ -1,4 +1,4 @@
-﻿@using (Html.BeginForm("GetGame", "VideoGame", FormMethod.Post, new { id = "Search-bar-form" }))
+﻿@using (Html.BeginForm("ShowGame", "VideoGame", FormMethod.Post, new { id = "Search-form" }))
 {
     <input type="text" id="Search-bar" name="title" placeholder="Find Games, Developers, and more..." />
     <button type="submit" id="Search-btn" name="search-submit">

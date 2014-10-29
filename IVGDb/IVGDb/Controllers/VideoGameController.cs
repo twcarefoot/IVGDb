@@ -39,7 +39,7 @@ namespace IVGDb.Controllers
             {
                 VideoGame newgame = new VideoGameViewModel();
                 newgame = VideoGameViewModel.GetGameByID((int)gameID);
-                return View(game);
+                return View(newgame);
             }
 
             return View();
