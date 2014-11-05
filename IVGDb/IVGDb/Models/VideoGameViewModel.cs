@@ -18,5 +18,9 @@ namespace IVGDb.Models
         {
             return db.VideoGames.Where(p => p.Title == title).First();
         }
+        public static List<VideoGame> QueryGames(string title)
+        {
+            return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
+        }
     }
 }

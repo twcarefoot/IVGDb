@@ -25,7 +25,8 @@
                 <input type="text" id="Search-bar" placeholder="Find Games, Developers, and more..." />
                 <button type="submit" id="Search-btn" name="search-submit">
                     <span id="Search-btn-span"><img src="~/Images/maglss.png" /></span>
-                </button>              
+                </button>
+                @Html.ActionLink("Results", "Results", "VideoGame", new { area = "" }, new { @class = "navbar-brand" })        
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

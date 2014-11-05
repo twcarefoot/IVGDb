@@ -7,7 +7,7 @@
       <Diagram DiagramId="f6d3210b148e441a970d2167ba10bed2" Name="Diagram1">
         <EntityTypeShape EntityType="ivgdb_Model.Rating" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ivgdb_Model.VideoGame" Width="1.5" PointX="1.875" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ivgdb_Model.VideoGame" Width="1.5" PointX="5.5" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="ivgdb_Model.FK_Rating_Game" ManuallyRouted="false" />
         <AssociationConnector Association="ivgdb_Model.FK_Rating_User" ManuallyRouted="false" />
       </Diagram>

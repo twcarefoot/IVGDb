@@ -48,5 +48,16 @@ namespace IVGDb.Controllers
 
             return View();
         }
+
+        public ActionResult Results(String search) 
+        {
+            if (search != null)
+            {
+                ViewBag.searchQuery = search;
+                List<VideoGame> gameList = VideoGameViewModel.QueryGames(search);
+                return View(gameList);
+            }
+            return View();
+        }
     }
 }
