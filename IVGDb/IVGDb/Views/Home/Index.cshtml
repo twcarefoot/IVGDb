@@ -3,21 +3,24 @@
     ViewBag.Title = "Home Page";
 }
 
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="~/Scripts/IVGDbScripts/CarouselScript.js"></script>
 
 <div id="Main-page-block-top">
     <!-- http://codepen.io/redfrost/pen/dbrgk -->
     <div class="container-fluid">
-        <div class="row-fluid">
+        <div class="row-fluid" id="Main-screen">
             <div class="span12">
-
+                <span id="TV-img">
+                    <img src="~/Images/sharp-old-school-tv.png" />
+                </span>
                 <div class="carousel slide" id="myCarousel">
                     <div class="carousel-inner">
 
                         <div class="item active">
 
                             <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="405"></a>
+                                <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="442"></a>
                             </div>
 
                             <div class="caption row-fluid">
@@ -34,7 +37,7 @@
                         <div class="item">
 
                             <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="405"></a>
+                                <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="442"></a>
                             </div>
 
                             <div class="caption row-fluid">
@@ -51,7 +54,7 @@
                         <div class="item">
 
                             <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="405"></a>
+                                <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="442"></a>
                             </div>
 
                             <div class="caption row-fluid">
@@ -69,6 +72,7 @@
 
                     <div class="control-box">
                         <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+                        <a href="#" class="carousel-control middle"></a>
                         <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
                     </div><!-- /.control-box -->
 

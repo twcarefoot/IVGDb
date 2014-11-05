@@ -47,6 +47,7 @@ textarea {
     width: 100%;
     margin: 20px 0px;
     padding: 20px;
+    z-index: 7;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
@@ -79,8 +80,15 @@ textarea {
     top: 33%;
     margin-top: -193px;
     padding-top: 250px;
+    z-index: 5;
+    float:left;
 }
-.carousel-control.left, .carousel-control.right {
+.carousel-control.middle {
+    height: 430px;
+    width: 600px;
+    z-index: 4;
+}
+.carousel-control.left, .carousel-control.right, .carousel-control.middle {
     background-image: none !important;
 }
 .container-fluid, #News-section {
@@ -137,6 +145,20 @@ textarea {
     width: 100%;
 }
 #Main-page-block-top { 
+}
+#Main-screen {
+    margin-left: -60px;
+}
+#TV-img img { 
+    max-width: 1100px;
+    margin-top: -130px;
+    z-index: 3;
+    position: absolute;
+}
+#myCarousel {
+    width: 595px;
+    margin-left: 170px;
+    padding-top: 10px
 }
 /* Login Menu */
 #container {
