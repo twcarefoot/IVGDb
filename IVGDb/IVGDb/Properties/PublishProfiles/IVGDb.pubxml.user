@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="bin/IVGDb.dll">
-      <publishTime>10/25/2014 18:03:33</publishTime>
+      <publishTime>11/04/2014 21:01:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>10/19/2014 14:07:22</publishTime>
@@ -101,7 +101,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>10/25/2014 17:55:49</publishTime>
+      <publishTime>11/04/2014 19:58:51</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>10/19/2014 14:07:24</publishTime>
@@ -127,8 +127,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/maglss.png">
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
+    <File Include="Images/sharp-old-school-tv.png">
+      <publishTime>11/04/2014 16:56:40</publishTime>
+    </File>
     <File Include="IVGDb.edmx.diagram">
-      <publishTime>10/19/2014 16:19:46</publishTime>
+      <publishTime>10/28/2014 19:23:28</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>10/19/2014 14:07:25</publishTime>
@@ -143,7 +146,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/IVGDbScripts/CarouselScript.js">
-      <publishTime>10/19/2014 14:07:21</publishTime>
+      <publishTime>11/04/2014 16:56:40</publishTime>
     </File>
     <File Include="Scripts/IVGDbScripts/jqeasy.dropdown.js">
       <publishTime>10/25/2014 13:49:55</publishTime>
@@ -191,31 +194,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/25/2014 15:14:29</publishTime>
+      <publishTime>11/04/2014 20:15:13</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/25/2014 17:27:09</publishTime>
+      <publishTime>11/04/2014 20:56:39</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>10/25/2014 15:01:10</publishTime>
+      <publishTime>11/04/2014 20:59:28</publishTime>
     </File>
     <File Include="Views/Shared/_NewsFeed.cshtml">
-      <publishTime>10/25/2014 14:36:41</publishTime>
+      <publishTime>11/04/2014 18:18:05</publishTime>
     </File>
     <File Include="Views/Shared/_SearchBar.cshtml">
-      <publishTime>10/25/2014 17:30:07</publishTime>
+      <publishTime>11/04/2014 20:01:32</publishTime>
     </File>
     <File Include="Views/User/Register.cshtml">
-      <publishTime>10/19/2014 15:44:55</publishTime>
+      <publishTime>10/28/2014 19:23:28</publishTime>
     </File>
     <File Include="Views/VideoGame/Index.cshtml">
       <publishTime>10/25/2014 14:48:58</publishTime>
     </File>
+    <File Include="Views/VideoGame/ShowAllGames.cshtml">
+      <publishTime>10/28/2014 19:23:20</publishTime>
+    </File>
     <File Include="Views/VideoGame/ShowGame.cshtml">
-      <publishTime>10/25/2014 17:35:26</publishTime>
+      <publishTime>10/28/2014 19:27:07</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/19/2014 14:07:21</publishTime>
@@ -224,7 +230,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/25/2014 18:03:37</publishTime>
+      <publishTime>10/28/2014 19:23:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

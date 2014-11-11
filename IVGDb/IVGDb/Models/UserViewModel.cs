@@ -16,14 +16,20 @@ namespace IVGDb.Models
             return db.Users.Where(p => p.Email == email).First();
         }
 
-        public static string GetCurrentPassword(string email)
+        public static string GetCurrentPassword(string username)
         {
-            return db.Users.Where(p => p.Email == email).Select(p => p.Password).ToString();
+            return db.Users.Where(p => p.Username == username).Select(p => p.Password).First();
         }
 
-        public static bool MatchingPasswords(string email, string newPassword)
+        public static string HashPassword(string password)
         {
-            return db.Users.Where(p => p.Email == email).Select(p => p.Password).Equals(newPassword);
+            return PasswordHash.PasswordHash.CreateHash(password);
+        }
+
+        public static bool VerifyPassword(string username, string enteredPassword)
+        {
+            string storedHashPassword = GetCurrentPassword(username);
+            return PasswordHash.PasswordHash.ValidatePassword(enteredPassword, storedHashPassword);
         }
 
         public static void Register(UserViewModel user)

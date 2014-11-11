@@ -16,27 +16,20 @@ namespace IVGDb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(User model)
+        public ActionResult Login(string username, string password)
         {
             if (ModelState.IsValid)
             {
-                using (ivgdb_Entities db = new ivgdb_Entities())
+                if (UserViewModel.VerifyPassword(username, password))
                 {
-                    string username = model.Username;
-                    string password = model.Password;
-
-                    bool userValid = db.Users.Any(p => p.Username == username && p.Password == password);
-
-                    if (userValid)
-                    {
-                        FormsAuthentication.SetAuthCookie(username, false);
-                        Session["LoggedIn"] = true;
-                        return RedirectToAction("Index", "Home");
-                    }
+                    Session["loggedIn"] = "true";
+                    Session["username"] = username;
+                    return RedirectToAction("Index", "Home");
                 }
+                return RedirectToAction("Index", "Home");
             }
 
-            return View(model);
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Register()
@@ -49,8 +42,10 @@ namespace IVGDb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if((user.Password == user.ConfirmPassword) && !UserViewModel.MatchingPasswords(user.Email, user.Password))
+                if(user.Password.Equals(user.ConfirmPassword))
                 {
+                    string hash = UserViewModel.HashPassword(user.Password);
+                    user.Password = hash.ToString();
                     UserViewModel.Register(user);
                     return RedirectToAction("Index", "Home");
                 }

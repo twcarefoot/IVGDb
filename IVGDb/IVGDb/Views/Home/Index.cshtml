@@ -6,6 +6,13 @@
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="~/Scripts/IVGDbScripts/CarouselScript.js"></script>
 
+@if(Session["loggedIn"] == "true")
+{ 
+    <div>
+        You logged in successfully!
+    </div>
+}
+
 <div id="Main-page-block-top">
     <!-- http://codepen.io/redfrost/pen/dbrgk -->
     <div class="container-fluid">
@@ -23,15 +30,6 @@
                                 <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="442"></a>
                             </div>
 
-                            <div class="caption row-fluid">
-                                <div class="span4">
-                                    <h3>Megaman X2</h3>
-                                </div>
-                                <div class="span8">
-                                    <p>Arguably the greatest Megaman entry in the entire series.</p>
-                                </div>
-                            </div>
-
                         </div><!-- /Slide1 -->
 
                         <div class="item">
@@ -40,30 +38,12 @@
                                 <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="442"></a>
                             </div>
 
-                            <div class="caption row-fluid">
-                                <div class="span4">
-                                    <h3>Super Castlevania 4</h3>
-                                </div>
-                                <div class="span8">
-                                    <p>Simon Belmont is on the hunt for Dracula's head!</p>
-                                </div>
-                            </div>
-
                         </div><!-- /Slide2 -->
 
                         <div class="item">
 
                             <div class="bannerImage">
                                 <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="442"></a>
-                            </div>
-
-                            <div class="caption row-fluid">
-                                <div class="span4">
-                                    <h3>Chrono Trigger</h3>
-                                </div>
-                                <div class="span8">
-                                    <p>The greatest RPG, and videogame, in the history of videogames.</p>
-                                </div>
                             </div>
 
                         </div><!-- /Slide3 -->

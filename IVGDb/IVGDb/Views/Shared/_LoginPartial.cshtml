@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNet.Identity
+@using IVGDb.Models;
 
-@if (Request.IsAuthenticated)
+
+@if (Session["loggedIn"] == "true")
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
@@ -8,7 +10,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Hello " + Session["username"] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
@@ -18,8 +20,20 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: new { id = "Register-link" })</li>
-        <li>
-            <a href="#">Log in</a>
+        <li class="dropdown" id="Menu-login">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="Nav-login">Login</a>
+            <div class="dropdown-menu" id="Login-menu" style="padding:17px;">
+                @using(Html.BeginForm("Login", "User", FormMethod.Post, new { @class="form", id="Form-login" }))
+                { 
+                    @*@Html.TextBoxFor(m => m.Username, new { id="Username", @class="login-input", @placeholder="Username" })*@
+                    @*@Html.TextBoxFor(m => m.Password, new { id = "Password", @class = "login-input", @type = "Password", @Placeholder = "Password" })<br />*@
+                    <input type="text" id="Username" name="username" class="login-input" placeholder="Username" />
+                    <input type="password" id="Password" name="password" class="login-input" placeholder="Password" /><br />
+                    <span class="no-account-link">Don't have an account?</span>
+                    @Html.ActionLink("Register here!", "Register", "User", null, new { @class="no-account-link" })<br />                    
+                    <button type="submit" id="Btn-login" class="btn">Login</button>
+                }
+            </div>
         </li>
     </ul>
 }
