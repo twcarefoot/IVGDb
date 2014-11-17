@@ -7,6 +7,7 @@ namespace IVGDb.Models
 {
     public class GameConsoleViewModel : VideoGame
     {
+        /*
         public static List<Console> ChosenConsoles { get; set; }
 
         public static List<Console> GetAllConsoles()
@@ -16,5 +17,6 @@ namespace IVGDb.Models
                 return db.Consoles.ToList();
             }
         }
+         */ 
     }
 }
