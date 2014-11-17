@@ -265,6 +265,7 @@
     <Content Include="Views\VideoGame\ShowGame.cshtml" />
     <Content Include="Views\VideoGame\ShowAllGames.cshtml" />
     <Content Include="Views\User\Manage.cshtml" />
+    <Content Include="Views\VideoGame\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
