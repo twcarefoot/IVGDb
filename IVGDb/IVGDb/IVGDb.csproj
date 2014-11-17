@@ -158,9 +158,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Console.cs">
+      <DependentUpon>IVGDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VideoGameController.cs" />
+    <Compile Include="GamesFor.cs">
+      <DependentUpon>IVGDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +185,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IVGDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameConsoleViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\VideoGameViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,6 +267,7 @@
     <Content Include="Views\VideoGame\Index.cshtml" />
     <Content Include="Views\VideoGame\ShowGame.cshtml" />
     <Content Include="Views\VideoGame\Results.cshtml" />
+    <Content Include="Views\VideoGame\AddNewGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

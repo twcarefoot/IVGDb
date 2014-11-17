@@ -1,0 +1,36 @@
+﻿@using IVGDb.Models;
+
+@model GameConsoleViewModel
+
+@{
+    ViewBag.Title = "AddNewGame";
+    
+}
+
+<h2>Add Game To IVGDb Database</h2>
+
+<div class="results-container">
+    @using (Html.BeginForm("AddNewGame", "VideoGame", FormMethod.Post))
+    {      
+        <div class="col-md-2">@Html.LabelFor(m => m.Title)</div>
+        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { @placeholder = "Title of game..." })</div>
+        <div class="col-md-2">@Html.LabelFor(m => m.Developer)</div>
+        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Developer, new { @placeholder = "Development studio..." })</div>
+        <div class="col-md-2">@Html.LabelFor(m => m.Publisher)</div>
+        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Publisher, new {@placeholder = "Publishing company..." })</div>
+        <div class="col-md-2">@Html.LabelFor(m => m.ReleaseDate)</div>
+        
+        @Html.CheckBoxFor(m => m.chosenConsoles, selectlist: Model.Consoles )
+        
+        
+        
+        <div class="col-md-10 registration-section">@Html.DropDownListFor(m => m.Console, listItems, "Select Console...")</div>
+        <div class="col-md-2">@Html.LabelFor(m => m.BoxArtLink)</div>
+        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.BoxArtLink, new {@placeholder = "Paste a link to the box art image..." })</div>
+
+        <div id="AddGame-btn">
+            <button type="submit" name="AddGame">Add Game!</button>
+        </div>
+    }
+
+</div>

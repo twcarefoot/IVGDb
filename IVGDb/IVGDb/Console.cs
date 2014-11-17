@@ -12,13 +12,16 @@ namespace IVGDb
     using System;
     using System.Collections.Generic;
     
-    public partial class Rating
+    public partial class Console
     {
-        public int FKUserID { get; set; }
-        public int FKGameID { get; set; }
-        public Nullable<int> Rating1 { get; set; }
+        public Console()
+        {
+            this.GamesFors = new HashSet<GamesFor>();
+        }
     
-        public virtual VideoGame VideoGame { get; set; }
-        public virtual User User { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<GamesFor> GamesFors { get; set; }
     }
 }

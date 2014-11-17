@@ -35,5 +35,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Consoles">
+      <EntityTypeMapping TypeName="ivgdb_Model.Console">
+        <MappingFragment StoreEntitySet="Consoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GamesFors">
+      <EntityTypeMapping TypeName="ivgdb_Model.GamesFor">
+        <MappingFragment StoreEntitySet="GamesFor">
+          <ScalarProperty Name="ConsoleID" ColumnName="ConsoleID" />
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

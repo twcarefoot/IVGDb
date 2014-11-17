@@ -22,5 +22,6 @@ namespace IVGDb.Models
         {
             return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
         }
+
     }
 }

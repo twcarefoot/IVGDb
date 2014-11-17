@@ -11,16 +11,15 @@ namespace IVGDb
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class VideoGame
     {
         public VideoGame()
         {
             this.Ratings = new HashSet<Rating>();
+            this.GamesFors = new HashSet<GamesFor>();
         }
     
-        [Key]
         public int GameID { get; set; }
         public string Title { get; set; }
         public string Publisher { get; set; }
@@ -30,5 +29,6 @@ namespace IVGDb
         public string BoxArtLink { get; set; }
     
         public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<GamesFor> GamesFors { get; set; }
     }
 }

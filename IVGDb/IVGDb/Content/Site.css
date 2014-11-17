@@ -352,5 +352,7 @@ a.btnsigninon {
     display: inline-block;
 }
 
-
+.form-add-game{
+    width: 50%;
+}
 

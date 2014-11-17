@@ -59,5 +59,22 @@ namespace IVGDb.Controllers
             }
             return View();
         }
+
+        public ActionResult AddNewGame()
+        {
+            List<Console> console_list = new List<Console>();
+            console_list = GameConsoleViewModel.getAllConsoles();
+            List<SelectListItem> Consoles = new List<SelectListItem>();
+
+            foreach (var console in console_list)
+            {
+                SelectListItem item = new SelectListItem();
+                item.Text = console.Name;
+                item.Value = console.Name;
+                Consoles.Add(item);
+            }
+
+            return View(Consoles);
+        }
     }
 }
