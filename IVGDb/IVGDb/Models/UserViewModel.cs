@@ -9,11 +9,13 @@ namespace IVGDb.Models
     {
         public string ConfirmPassword { get; set; }
 
+        public bool LoggedIn { get; set; }
+
         private static ivgdb_Entities db = new ivgdb_Entities();
 
-        public static User GetUser(string email)
+        public static User GetUser(string username)
         {
-            return db.Users.Where(p => p.Email == email).First();
+            return db.Users.Where(p => p.Username == username).First();
         }
 
         public static string GetCurrentPassword(string username)
@@ -21,9 +23,19 @@ namespace IVGDb.Models
             return db.Users.Where(p => p.Username == username).Select(p => p.Password).First();
         }
 
+        public static string GetUserImageURL(string username)
+        {
+            return db.Users.Where(p => p.Username == username).Select(p => p.UserProfilePicLink).First();
+        }
+
         public static string HashPassword(string password)
         {
             return PasswordHash.PasswordHash.CreateHash(password);
+        }
+
+        public static bool UserExists(string username)
+        {
+            return db.Users.Any(p => p.Username == username);
         }
 
         public static bool VerifyPassword(string username, string enteredPassword)
@@ -40,6 +52,13 @@ namespace IVGDb.Models
             newUser.Password = user.Password;
             newUser.UserProfilePicLink = null;
             db.Users.Add(newUser);
+            db.SaveChanges();
+        }
+
+        public static void SetProfilePicURL(User user)
+        {
+            User updatingUser = GetUser(user.Username);
+            updatingUser.UserProfilePicLink = user.UserProfilePicLink;
             db.SaveChanges();
         }
     }

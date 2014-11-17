@@ -1,19 +1,19 @@
-﻿@using Microsoft.AspNet.Identity
-@using IVGDb.Models;
-
-
-@if (Session["loggedIn"] == "true")
+﻿@if (Session["LoggedIn"] == "true")
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOut", "User", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + Session["username"] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="@Url.Action("Manage", "User", new { username = Session["Username"] })">
+                    @Session["Username"]! <img src='@Session["ImageURL"]' width="30" height="30" />
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button type="submit" class="btn btn-link" id="Logout-btn">Logout</button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     }
 }
 else
@@ -23,12 +23,13 @@ else
         <li class="dropdown" id="Menu-login">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="Nav-login">Login</a>
             <div class="dropdown-menu" id="Login-menu" style="padding:17px;">
+                <div id="Login-img">
+                    <img src="~/Images/videogames.jpg" width="184" height="184" />
+                </div>
                 @using(Html.BeginForm("Login", "User", FormMethod.Post, new { @class="form", id="Form-login" }))
                 { 
-                    @*@Html.TextBoxFor(m => m.Username, new { id="Username", @class="login-input", @placeholder="Username" })*@
-                    @*@Html.TextBoxFor(m => m.Password, new { id = "Password", @class = "login-input", @type = "Password", @Placeholder = "Password" })<br />*@
-                    <input type="text" id="Username" name="username" class="login-input" placeholder="Username" />
-                    <input type="password" id="Password" name="password" class="login-input" placeholder="Password" /><br />
+                    <input type="text" id="Username" name="Username" class="login-input" placeholder="Username" />
+                    <input type="password" id="Password" name="Password" class="login-input" placeholder="Password" />
                     <span class="no-account-link">Don't have an account?</span>
                     @Html.ActionLink("Register here!", "Register", "User", null, new { @class="no-account-link" })<br />                    
                     <button type="submit" id="Btn-login" class="btn">Login</button>

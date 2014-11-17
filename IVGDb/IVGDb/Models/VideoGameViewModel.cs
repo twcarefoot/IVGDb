@@ -8,6 +8,8 @@ namespace IVGDb.Models
 {
     public class VideoGameViewModel : VideoGame
     {
+        public UserViewModel user { get; set; }
+
         public static ivgdb_Entities db = new ivgdb_Entities();
 
         public static VideoGame GetGameByID(int gameID)

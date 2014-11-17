@@ -205,6 +205,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\maglss.png" />
     <Content Include="Images\sharp-old-school-tv.png" />
+    <Content Include="Images\videogames.jpg" />
     <Content Include="Scripts\bootstrap-responsive.min.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -263,6 +264,7 @@
     <Content Include="Views\VideoGame\Index.cshtml" />
     <Content Include="Views\VideoGame\ShowGame.cshtml" />
     <Content Include="Views\VideoGame\ShowAllGames.cshtml" />
+    <Content Include="Views\User\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

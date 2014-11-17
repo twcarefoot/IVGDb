@@ -104,9 +104,19 @@ textarea {
     background: none;
     box-shadow: none;
 }
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 #Footer {
     margin: 0 auto;
     width: 10%;
+}
+#Login-img img {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 1px 2px 10px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 10px 5px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 10px 5px rgba(0,0,0,0.75);
 }
 #Login-menu {
     background: #a1a1a1;
@@ -115,6 +125,9 @@ textarea {
     border-radius: 4px;
     padding: 5px;
     margin: 10px;
+}
+#Logout-btn, #Logout-btn:hover, #Logout-btn:active {
+    text-decoration: none;
 }
 #Main-page-block-top { 
 }
@@ -194,6 +207,12 @@ textarea {
     z-index: 3;
     position: absolute;
 }
+#User-profile {
+    padding-top: 20px;
+}
+    #User-profile #User-img {
+        background-image: url('http://placehold.it/200x200');
+    }
 .write-up-section {
     height: 250px;
     border: 2px solid #A1A1A1;

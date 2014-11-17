@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IVGDb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,13 @@ namespace IVGDb.Controllers
     {
         public ActionResult Index()
         {
+            UserViewModel user = (UserViewModel)TempData["user"];
+            if (user != null)
+            {
+                ViewBag.LoggedIn = true;
+                return View(user);
+            }            
+
             return View();
         }
 

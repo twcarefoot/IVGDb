@@ -1,17 +1,13 @@
-﻿
+﻿@using IVGDb.Models;
+
+@model UserViewModel
+
 @{
     ViewBag.Title = "Home Page";
 }
 
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="~/Scripts/IVGDbScripts/CarouselScript.js"></script>
-
-@if(Session["loggedIn"] == "true")
-{ 
-    <div>
-        You logged in successfully!
-    </div>
-}
 
 <div id="Main-page-block-top">
     <!-- http://codepen.io/redfrost/pen/dbrgk -->
