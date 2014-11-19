@@ -194,8 +194,8 @@ textarea {
 #Search-bar-form { float: left; }
 #Search-input {
     float: left;
-    background: #3056BD;
-    color: #FFF;
+    background: #FFF;
+    color: #3a4482;
     border-color: #3056BD;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -268,8 +268,16 @@ textarea {
     height: 150px;
     position: relative;
     overflow: hidden;
-    background-color: lightgray;
     float:left;
+
+    background: #7d7e7d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
 }
 
 .results-box-art img {
@@ -291,7 +299,6 @@ textarea {
 }
 
 .results-info-details {
-    background-color: green;
     padding: 10px;
     width: 300px;
     height: 100px;
@@ -317,3 +324,68 @@ textarea {
     width: 50%;
 }
 
+.game-container{
+    width: 100%;
+}
+
+.game-page-box-art {
+    display: block;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    float:left;
+
+    background: #7d7e7d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+
+}
+
+.game-page-box-art img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.game-information-container{
+    height: 350px;
+    width:auto;
+    overflow:hidden;
+    background-color: gray;
+    border-left: 3px solid lightgray;
+}
+
+.game-information{
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.game-information-synopsis{
+    padding: 5px;
+    height: 250px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.navbar-brand{
+    font-size: 20pt;
+    font-weight: 500;
+}
+
+.game-controls{
+    float: right;
+}

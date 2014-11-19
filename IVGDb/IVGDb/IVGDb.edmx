@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ivgdb_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Consoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GamesFor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameID" Type="int" Nullable="false" />
+          <Property Name="ConsoleID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Rating">
           <Key>
             <PropertyRef Name="FKUserID" />
@@ -37,6 +52,30 @@
           <Property Name="Console" Type="nvarchar" MaxLength="50" />
           <Property Name="BoxArtLink" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_GamesFor_ConsoleID">
+          <End Role="Consoles" Type="Self.Consoles" Multiplicity="1" />
+          <End Role="GamesFor" Type="Self.GamesFor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consoles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GamesFor">
+              <PropertyRef Name="ConsoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamesFor_GameID">
+          <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
+          <End Role="GamesFor" Type="Self.GamesFor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGame">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="GamesFor">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rating_Game">
           <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
           <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
@@ -62,9 +101,19 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ivgdb_ModelStoreContainer">
+          <EntitySet Name="Consoles" EntityType="Self.Consoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GamesFor" EntityType="Self.GamesFor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoGame" EntityType="Self.VideoGame" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GamesFor_ConsoleID" Association="Self.FK_GamesFor_ConsoleID">
+            <End Role="Consoles" EntitySet="Consoles" />
+            <End Role="GamesFor" EntitySet="GamesFor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamesFor_GameID" Association="Self.FK_GamesFor_GameID">
+            <End Role="VideoGame" EntitySet="VideoGame" />
+            <End Role="GamesFor" EntitySet="GamesFor" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
             <End Role="VideoGame" EntitySet="VideoGame" />
             <End Role="Rating" EntitySet="Rating" />
@@ -113,6 +162,7 @@
           <Property Name="Console" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
+          <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
         </EntityType>
         <Association Name="FK_Rating_Game">
           <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
@@ -150,7 +200,59 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Rating" EntitySet="Ratings" />
           </AssociationSet>
+          <EntitySet Name="Consoles" EntityType="ivgdb_Model.Console" />
+          <EntitySet Name="GamesFors" EntityType="ivgdb_Model.GamesFor" />
+          <AssociationSet Name="FK_GamesFor_ConsoleID" Association="ivgdb_Model.FK_GamesFor_ConsoleID">
+            <End Role="Console" EntitySet="Consoles" />
+            <End Role="GamesFor" EntitySet="GamesFors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamesFor_GameID" Association="ivgdb_Model.FK_GamesFor_GameID">
+            <End Role="VideoGame" EntitySet="VideoGames" />
+            <End Role="GamesFor" EntitySet="GamesFors" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Console">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="Console" ToRole="GamesFor" />
+        </EntityType>
+        <EntityType Name="GamesFor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameID" Type="Int32" Nullable="false" />
+          <Property Name="ConsoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Console" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="GamesFor" ToRole="Console" />
+          <NavigationProperty Name="VideoGame" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="GamesFor" ToRole="VideoGame" />
+        </EntityType>
+        <Association Name="FK_GamesFor_ConsoleID">
+          <End Type="ivgdb_Model.Console" Role="Console" Multiplicity="1" />
+          <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Console">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GamesFor">
+              <PropertyRef Name="ConsoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamesFor_GameID">
+          <End Type="ivgdb_Model.VideoGame" Role="VideoGame" Multiplicity="1" />
+          <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGame">
+              <PropertyRef Name="GameID" />
+            </Principal>
+            <Dependent Role="GamesFor">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -188,6 +290,23 @@
                 <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
                 <ScalarProperty Name="Console" ColumnName="Console" />
                 <ScalarProperty Name="BoxArtLink" ColumnName="BoxArtLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consoles">
+            <EntityTypeMapping TypeName="ivgdb_Model.Console">
+              <MappingFragment StoreEntitySet="Consoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GamesFors">
+            <EntityTypeMapping TypeName="ivgdb_Model.GamesFor">
+              <MappingFragment StoreEntitySet="GamesFor">
+                <ScalarProperty Name="ConsoleID" ColumnName="ConsoleID" />
+                <ScalarProperty Name="GameID" ColumnName="GameID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
