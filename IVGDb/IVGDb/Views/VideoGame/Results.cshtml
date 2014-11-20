@@ -23,7 +23,10 @@
                     </div>
                 </div>
                 <div class="results-body">
-                    <div class="results-box-art"><img src="@item.BoxArtLink" /></div>
+                    <div class="results-box-art">
+                        <a href="~/VideoGame/ShowGame?gameID=@item.GameID">
+                            <img src="@item.BoxArtLink" />
+                        </a></div>
                     <div class="results-info">
                         <div class="results-info-details">
                             <strong>Publisher: </strong>@item.Publisher <br />
@@ -37,9 +40,7 @@
                 </div>
             </div>
         }
-    }
-
-
+        
     <ul class="pagination pagination-sm">
         @Model.Count Results
         <li class="disabled"><a href="#">«</a></li>
@@ -50,6 +51,10 @@
         <li><a href="#">5</a></li>
         <li><a href="#">»</a></li>
     </ul>
+    }
+
+
+    
 
     <div class="panel panel-danger">
         <div class="panel-heading">

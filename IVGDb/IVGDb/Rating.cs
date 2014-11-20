@@ -11,13 +11,10 @@ namespace IVGDb
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Rating
     {
-        [Key]
         public int FKUserID { get; set; }
-        [Key]
         public int FKGameID { get; set; }
         public Nullable<int> Rating1 { get; set; }
     

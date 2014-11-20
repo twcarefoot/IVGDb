@@ -54,13 +54,37 @@ namespace IVGDb.Controllers
 
         public ActionResult Results(String search)
         {
-            if (search != null)
+            if (search != null && search.Length > 1)
             {
+                List<VideoGame> gameList = VideoGameViewModel.QueryGames(search);    
                 ViewBag.searchQuery = search;
-                List<VideoGame> gameList = VideoGameViewModel.QueryGames(search);
                 return View(gameList);
             }
             return View();
         }
+
+        
+
+        public ActionResult AddNewGame()
+        {
+            GameConsoleViewModel vgViewModel = new GameConsoleViewModel();
+            vgViewModel.consolesList = GameConsoleViewModel.getAllConsoles();
+            return View(vgViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AddNewGame(GameConsoleViewModel newGame)
+        {
+            if (ModelState.IsValid)
+            {
+                int newGameID = GameConsoleViewModel.AddNewGame(newGame);
+
+                VideoGame game = new VideoGameViewModel();
+                game = VideoGameViewModel.GetGameByID(newGameID);
+                return RedirectToAction("ShowGame", game);
+            }
+            return View();
+        }
+
     }
 }

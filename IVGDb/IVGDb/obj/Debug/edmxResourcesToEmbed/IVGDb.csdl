@@ -35,6 +35,7 @@
     <Property Name="Console" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
+    <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
   </EntityType>
   <Association Name="FK_Rating_Game">
     <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
@@ -72,5 +73,57 @@
       <End Role="User" EntitySet="Users" />
       <End Role="Rating" EntitySet="Ratings" />
     </AssociationSet>
+    <EntitySet Name="Consoles" EntityType="ivgdb_Model.Console" />
+    <EntitySet Name="GamesFors" EntityType="ivgdb_Model.GamesFor" />
+    <AssociationSet Name="FK_GamesFor_ConsoleID" Association="ivgdb_Model.FK_GamesFor_ConsoleID">
+      <End Role="Console" EntitySet="Consoles" />
+      <End Role="GamesFor" EntitySet="GamesFors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GamesFor_GameID" Association="ivgdb_Model.FK_GamesFor_GameID">
+      <End Role="VideoGame" EntitySet="VideoGames" />
+      <End Role="GamesFor" EntitySet="GamesFors" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Console">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="Console" ToRole="GamesFor" />
+  </EntityType>
+  <EntityType Name="GamesFor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameID" Type="Int32" Nullable="false" />
+    <Property Name="ConsoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Console" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="GamesFor" ToRole="Console" />
+    <NavigationProperty Name="VideoGame" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="GamesFor" ToRole="VideoGame" />
+  </EntityType>
+  <Association Name="FK_GamesFor_ConsoleID">
+    <End Type="ivgdb_Model.Console" Role="Console" Multiplicity="1" />
+    <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Console">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GamesFor">
+        <PropertyRef Name="ConsoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GamesFor_GameID">
+    <End Type="ivgdb_Model.VideoGame" Role="VideoGame" Multiplicity="1" />
+    <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoGame">
+        <PropertyRef Name="GameID" />
+      </Principal>
+      <Dependent Role="GamesFor">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
