@@ -18,9 +18,7 @@
                     <div class="results-heading-title">
                         <a href="~/VideoGame/ShowGame?gameID=@item.GameID">@item.Title</a>
                     </div>
-                    <div class="results-console">
-                        <span class="label label-danger">@item.Console</span>
-                    </div>
+                    <div class="results-console"></div>
                 </div>
                 <div class="results-body">
                     <div class="results-box-art">
@@ -32,9 +30,11 @@
                             <strong>Publisher: </strong>@item.Publisher <br />
                             <strong>Developer: </strong>@item.Developer <br />
                             <strong>Release Date: </strong>@item.ReleaseDate<br />
-                            <strong>Rating: </strong>90% <br />
-                        </div>
-                        <div class="results-rating">
+                            <strong>Consoles: </strong>
+                            @foreach (GamesFor gameConsole in item.GamesFors)
+                            {
+                                <span class="label label-danger">@gameConsole.Console.Name</span>;
+                            }
                         </div>
                     </div>
                 </div>

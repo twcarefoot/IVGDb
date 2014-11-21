@@ -233,10 +233,12 @@ textarea {
     text-align: left;
     margin: 10px;
     padding: 5px;
+    width: 475px;
     border: 1px solid  #bbb;
     border-top-left-radius: 5px;
     border-top-right-radius: 20px;
     display: inline-block;
+    background-color: #242749;
 }
 
 .results-heading{
@@ -244,12 +246,13 @@ textarea {
     width: 100%;
     padding: 10px;
     float: left;
+    border-bottom: 2px groove black;
 }
 
 .results-heading-title{
     font-size:14pt;
     float: left;
-    max-width: 300px;
+    max-width: 350px;
     text-overflow: ellipsis;
 }
 
@@ -258,8 +261,6 @@ textarea {
 }
 
 .results-body{
-    height: 150px;
-    width: 450px;
 }
 
 .results-box-art {
@@ -296,14 +297,14 @@ textarea {
     width: 300px;
     height: 150px;
     float: left;
+    background-color: #DEDEDE;
+    border-bottom-right-radius: 15px;
 }
 
 .results-info-details {
     padding: 10px;
     width: 300px;
-    height: 100px;
     float: left;
-    background-color: #f5f5f5;
 }
 
 .results-rating {
@@ -388,4 +389,8 @@ textarea {
 
 .game-controls{
     float: right;
+}
+
+.console-checkbox{
+    width: 20px;
 }

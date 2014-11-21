@@ -8,7 +8,7 @@ namespace IVGDb.Models
 {
     public class GameConsoleViewModel : VideoGame
     {
-        public List<string> chosenConsoles { get; set; } //Attribute for chosen game consoles for new game entry
+        public List<bool> chosenConsoles { get; set; } //Attribute for chosen game consoles for new game entry
 
         public List<Console> consolesList { get; set; } //Attribute for chosen game consoles for new game entry
 
@@ -21,6 +21,8 @@ namespace IVGDb.Models
                 return db.Consoles.ToList();
             }
         }
+
+        
 
         //Return the ID of the newly added game
         public static int AddNewGame(GameConsoleViewModel newGameModel)
@@ -36,6 +38,16 @@ namespace IVGDb.Models
                 if (newGame.Title != null)
                 {
                     db.VideoGames.Add(newGame);
+                    
+                    for(int i = 0; i < newGameModel.chosenConsoles.Count; i++){
+                        if (newGameModel.chosenConsoles[i] == true)
+                        {
+                            GamesFor newGamesFor = new GamesFor();
+                            newGamesFor.ConsoleID = i+1;
+                            newGamesFor.GameID = newGame.GameID;
+                            db.GamesFors.Add(newGamesFor);
+                        }
+                    }
                     db.SaveChanges();
                     return newGame.GameID;
                 }

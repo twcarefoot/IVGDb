@@ -33,12 +33,14 @@ namespace IVGDb.Controllers
             {
                 VideoGame newgame = new VideoGameViewModel();
                 newgame = VideoGameViewModel.GetGameByTitle(game.Title);
+                //newgame.GamesFors = VideoGameViewModel.GetGameConsoles(game.GameID);
                 return View(newgame);
             }
             if (gameID != null)
             {
                 VideoGame newgame = new VideoGameViewModel();
                 newgame = VideoGameViewModel.GetGameByID((int)gameID);
+                newgame.GamesFors = VideoGameViewModel.GetGameConsoles((int)gameID);
                 return View(newgame);
             }
 
@@ -78,7 +80,6 @@ namespace IVGDb.Controllers
             if (ModelState.IsValid)
             {
                 int newGameID = GameConsoleViewModel.AddNewGame(newGame);
-
                 VideoGame game = new VideoGameViewModel();
                 game = VideoGameViewModel.GetGameByID(newGameID);
                 return RedirectToAction("ShowGame", game);

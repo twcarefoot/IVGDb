@@ -36,8 +36,10 @@
                     @Html.DisplayFor(m => m.ReleaseDate)
                 </p>
                 <p>
-                    @Html.LabelFor(m => m.Console)
-                    @Html.DisplayFor(m => m.Console)
+                    @foreach (GamesFor gameConsole in Model.GamesFors)
+                    {
+                        <span class="label label-danger">@gameConsole.Console.Name</span>;
+                    }
                 </p>
             </div>
             <div class="game-information-synopsis">

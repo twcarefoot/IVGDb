@@ -20,6 +20,11 @@ namespace IVGDb.Models
                 return null;
         }
 
+        public static List<GamesFor> GetGameConsoles(int gameID)
+        {
+            return db.GamesFors.Where(p => p.GameID == gameID).ToList();
+        }
+
         public static VideoGame GetGameByTitle(string title)
         {
             if (db.VideoGames.Any(p => p.Title == title))
@@ -37,9 +42,5 @@ namespace IVGDb.Models
         {
             return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
         }
-
-
-
     }
-
 }

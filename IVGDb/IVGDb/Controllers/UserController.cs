@@ -33,13 +33,14 @@ namespace IVGDb.Controllers
             if (userExists)
             {
                 bool passwordsMatch = UserViewModel.VerifyPassword(Username, Password);
+
                 if (passwordsMatch)
                 {
-                    Session["LoggedIn"] = "true";
-                    Session["Username"] = Username;
-                    Session["ImageURL"] = UserViewModel.GetUserImageURL(Username);
+                    FormsAuthentication.SetAuthCookie(Username, true);
+                    Session["ImgURL"] = UserViewModel.GetUserImageURL(Username);
                     return RedirectToAction("Index", "Home");
                 }
+
                 ModelState.AddModelError("LoginErr", "The password entered is incorrect.");
                 return RedirectToAction("Index", "Home");
             }
@@ -51,8 +52,8 @@ namespace IVGDb.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
-            Session.Remove("LoggedIn");
-            Session.Remove("Username");
+            FormsAuthentication.SignOut();
+            Session.Remove("ImgURL");
             return RedirectToAction("Index", "Home");
         }
 

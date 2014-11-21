@@ -1,11 +1,15 @@
-﻿@if (Session["LoggedIn"] == "true")
+﻿@{
+    var url = ViewBag.URL;
+}
+
+@if (User.Identity.Name.Length > 0)
 {
     using (Html.BeginForm("LogOut", "User", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="@Url.Action("Manage", "User", new { username = Session["Username"] })">
-                    @Session["Username"]! <img src='@Session["ImageURL"]' width="30" height="30" />
+                <a href="@Url.Action("Manage", "User", new { username = User.Identity.Name })">
+                    @User.Identity.Name! <img src='@Session["ImgURL"]' width="30" height="30" />
                 </a>
                 <ul class="dropdown-menu">
                     <li>
