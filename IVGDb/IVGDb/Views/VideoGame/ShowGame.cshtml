@@ -11,10 +11,13 @@
     <h2>
         @Html.DisplayFor(m => m.Title)
 
-    <div class="game-controls">
-        <a href=""><i class="glyphicon glyphicon-wrench"></i></a>
-        <a href=""><i class="glyphicon glyphicon-trash"></i></a>
-    </div>
+    @if(User.Identity.Name.Length > 0)
+    { 
+        <div class="game-controls">
+            <a href=""><i class="glyphicon glyphicon-wrench"></i></a>
+            <a href=""><i class="glyphicon glyphicon-trash"></i></a>
+        </div>
+    }
     </h2>
 
     <div class="game-container">
@@ -42,6 +45,7 @@
             </div>
             <div class="game-information-synopsis">
                 <h4>Synopsis:</h4>
+                @Html.DisplayFor(m => m.Synopsis)
             </div>
         </div>
     </div>

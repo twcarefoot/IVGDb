@@ -11,15 +11,47 @@
 @using (Html.BeginForm("Register", "User", FormMethod.Post))
 {
     <div class="row">
+        @if(ViewBag.Unregistered == "true")
+        { 
+            <div class="text-warning">
+                It appears you aren't logged into your account, or do not have one. Please register or login to your account to 
+                add a game to the database.
+            </div>
+        }
+        <div class="error-msg text-warning">
+            @Html.ValidationMessage("RegisterError")
+        </div>
         <div>
             <div class="col-md-2">@Html.LabelFor(m => m.Username)</div>
-            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Username, new { @placeholder = "Username" })</div>
+            <div class="col-md-10 registration-section">
+                @Html.TextBoxFor(m => m.Username, new { id = "Register-username", @placeholder = "Username" })
+                <span class="error-msg register-err-msg" id="UsernameErr"></span>
+            </div>
+            
             <div class="col-md-2">@Html.LabelFor(m => m.Email)</div>
-            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })</div>
+            <div class="col-md-10 registration-section">
+                @Html.TextBoxFor(m => m.Email, new { id = "Register-email", @placeholder = "Email" })
+                <span class="error-msg register-err-msg" id="EmailErr"></span>
+            </div>
+
+            <div class="col-md-2">@Html.LabelFor(m => m.UserProfilePicLink)</div>
+            <div class="col-md-10 registration-section">
+                @Html.TextBoxFor(m => m.UserProfilePicLink, new { id = "Register-pic-url", @placeholder = "Image URL" })
+                <span class="error-msg register-err-msg" id="URLErr"></span>
+            </div>
+            
             <div class="col-md-2">@Html.LabelFor(m => m.Password)</div>
-            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "Password" })</div>
+            <div class="col-md-10 registration-section">
+                @Html.TextBoxFor(m => m.Password, new { id = "Register-password", @type = "password", @placeholder = "Password" })
+                <span class="error-msg register-err-msg" id="PasswordErr"></span>
+            </div>
+            
             <div class="col-md-2">@Html.LabelFor(m => m.ConfirmPassword)</div>
-            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.ConfirmPassword, new { @type = "password", @placeholder = "Confirm Password" })</div>
+            <div class="col-md-10 registration-section">
+                @Html.TextBoxFor(m => m.ConfirmPassword, new { id = "Register-confirm-password", @type = "password", @placeholder = "Confirm Password" })
+                <span class="error-msg register-err-msg" id="ConfirmPassErr"></span>
+            </div>
+            
         </div>
         <div id="Register-btn">
             <button type="submit" name="Register">Register!</button>

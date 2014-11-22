@@ -25,6 +25,7 @@
     <EntitySetMapping Name="VideoGames">
       <EntityTypeMapping TypeName="ivgdb_Model.VideoGame">
         <MappingFragment StoreEntitySet="VideoGame">
+          <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
           <ScalarProperty Name="GameID" ColumnName="GameID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Publisher" ColumnName="Publisher" />

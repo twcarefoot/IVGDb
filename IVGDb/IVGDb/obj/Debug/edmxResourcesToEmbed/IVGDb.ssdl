@@ -46,6 +46,7 @@
     <Property Name="ReleaseDate" Type="datetime" />
     <Property Name="Console" Type="nvarchar" MaxLength="50" />
     <Property Name="BoxArtLink" Type="nvarchar(max)" />
+    <Property Name="Synopsis" Type="text" />
   </EntityType>
   <Association Name="FK_GamesFor_ConsoleID">
     <End Role="Consoles" Type="Self.Consoles" Multiplicity="1" />

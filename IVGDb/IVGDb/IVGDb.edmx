@@ -51,6 +51,7 @@
           <Property Name="ReleaseDate" Type="datetime" />
           <Property Name="Console" Type="nvarchar" MaxLength="50" />
           <Property Name="BoxArtLink" Type="nvarchar(max)" />
+          <Property Name="Synopsis" Type="text" />
         </EntityType>
         <Association Name="FK_GamesFor_ConsoleID">
           <End Role="Consoles" Type="Self.Consoles" Multiplicity="1" />
@@ -163,6 +164,7 @@
           <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
           <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
+          <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Rating_Game">
           <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
@@ -283,6 +285,7 @@
           <EntitySetMapping Name="VideoGames">
             <EntityTypeMapping TypeName="ivgdb_Model.VideoGame">
               <MappingFragment StoreEntitySet="VideoGame">
+                <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
                 <ScalarProperty Name="GameID" ColumnName="GameID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Publisher" ColumnName="Publisher" />

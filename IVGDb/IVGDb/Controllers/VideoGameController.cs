@@ -67,6 +67,10 @@ namespace IVGDb.Controllers
 
         public ActionResult AddNewGame()
         {
+            if (User.Identity.Name.Length == 0)
+            {
+                return RedirectToAction("Register", "User", new { unregistered = true });
+            }
             GameConsoleViewModel vgViewModel = new GameConsoleViewModel();
             vgViewModel.consolesList = GameConsoleViewModel.getAllConsoles();
             return View(vgViewModel);

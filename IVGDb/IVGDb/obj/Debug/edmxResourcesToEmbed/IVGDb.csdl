@@ -36,6 +36,7 @@
     <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
     <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
+    <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Rating_Game">
     <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />

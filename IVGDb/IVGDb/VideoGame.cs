@@ -27,6 +27,7 @@ namespace IVGDb
         public Nullable<System.DateTime> ReleaseDate { get; set; }
         public string Console { get; set; }
         public string BoxArtLink { get; set; }
+        public string Synopsis { get; set; }
     
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<GamesFor> GamesFors { get; set; }

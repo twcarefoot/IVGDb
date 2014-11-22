@@ -107,6 +107,11 @@ textarea {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+.error-msg {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
 #Footer {
     margin: 0 auto;
     width: 10%;
@@ -170,6 +175,9 @@ textarea {
     width: 250px;
 }
 #Register-btn { margin-left: 15px; }
+.register-err-msg {
+    padding-left: 20px;
+}
 #Search-form { float: left; }
 #Search-bar {
     width: 350px;

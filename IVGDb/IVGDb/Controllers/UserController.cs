@@ -68,8 +68,13 @@ namespace IVGDb.Controllers
             return View();
         }
 
-        public ActionResult Register()
+        public ActionResult Register(bool? unregistered)
         {
+            if (unregistered != null && (bool)unregistered)
+                ViewBag.Unregistered = "true";
+            else
+                ViewBag.Unregistered = "false";
+
             return View();
         }
 
@@ -78,7 +83,17 @@ namespace IVGDb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(user.Password.Equals(user.ConfirmPassword))
+                if(!user.Password.Equals(user.ConfirmPassword))
+                {
+                    ModelState.AddModelError("RegisterError", "The passwords you entered do not match.");
+                    return RedirectToAction("Register", "User");
+                }
+                else if(user.Password.Length < 6)
+                {
+                    ModelState.AddModelError("RegisterError", "The password you entered is shorter than 6 characters.");
+                    return RedirectToAction("Register", "User");
+                }
+                else
                 {
                     string hash = UserViewModel.HashPassword(user.Password);
                     user.Password = hash.ToString();
