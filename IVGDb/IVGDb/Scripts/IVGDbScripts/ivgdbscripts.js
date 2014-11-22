@@ -1,15 +1,10 @@
 ﻿$(document).ready(function () {
 
-    $('button[name="Register"]').attr('disabled', 'disabled');
-
     $('input#Register-username').change(function () {
         validateUsername();
     });
     $('input#Register-email').change(function () {
         validateEmail();
-    });
-    $('input#Register-pic-url').change(function () {
-        validateURL();
     });
     $('input#Register-password').change(function () {
         validatePassword();
@@ -17,6 +12,21 @@
     $('input#Register-confirm-password').keyup(function () {
         validateConfirmPassword();
     });
+
+    $('#Registration-form').submit(function (e) {
+        if (!validateUsername())
+            e.preventDefault();
+
+        if (!validateEmail())
+            e.preventDefault();
+
+        if (!validatePassword())
+            e.preventDefault();
+
+        if (!validateConfirmPassword())
+            e.preventDefault();
+    });
+
 });
 
 function validateUsername() {
@@ -70,30 +80,11 @@ function validateConfirmPassword() {
     var confpass = $('input#Register-confirm-password').val();
     if (confpass !== pass) {
         $('#ConfirmPassErr').text('Your passwords don\'t match');
-        $('button[name="Register"]').attr('disabled', 'disabled');
+        return false;
     }
     if (confpass === pass) {
         $('#ConfirmPassErr').text('');
-        if (validateUsername() && validateEmail() && validateURL())
-            $('button[name="Register"]').removeAttr('disabled');
+        return false;
     }
-
-}
-jQuery.validator.setDefaults({
-    debug: true,
-    success: "valid"
-});
-function validateURL() {
-    
-    var exists = $('input#Register-pic-url').val().validate({
-        rules: {
-            field: {
-                required: true,
-                url: true
-            }
-        }
-    });
-
-    alert(exists);
 
 }
