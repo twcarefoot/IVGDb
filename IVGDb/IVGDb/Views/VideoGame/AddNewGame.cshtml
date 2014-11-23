@@ -19,13 +19,16 @@
         <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Publisher, new {@placeholder = "Publishing company..." })</div>
         <div class="col-md-2">@Html.LabelFor(m => m.ReleaseDate)</div>
 
-
-        foreach (var console in Model.consolesList)
-        {
-            @console.Name
-            <input type="checkbox" name=@console.Name value=@console.Name/>
-        }
-        
+    <div class ="col-md-10 registration-section">
+            @for (int i = 0; i < Model.consolesList.Count; i++)
+            {
+                <div class="console-checkbox">
+                    @Model.consolesList[i].Name
+                    @Html.CheckBoxFor(m=>m.chosenConsoles[i], new { id=@Model.consolesList[i].ID})
+                </div>
+            }
+    </div>
+   
         <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.BoxArtLink, new {@placeholder = "Paste a link to the box art image..." })</div>
 
         <div id="AddGame-btn">

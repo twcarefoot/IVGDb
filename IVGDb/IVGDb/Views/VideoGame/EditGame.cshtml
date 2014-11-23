@@ -1,0 +1,54 @@
+﻿@using IVGDb.Models;
+
+@model VideoGame
+
+@{
+    ViewBag.Title = "EditGame";
+}
+
+<h2>Edit Game</h2>
+
+@if (Model != null)
+{
+
+    <div class="results-container">
+        @using (Html.BeginForm("EditGame", "VideoGame", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.GameID);
+            <div class="col-md-2">@Html.LabelFor(m => m.Title)</div>
+            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { @placeholder = "Title of game...", @value = Model.Title })</div>
+            <div class="col-md-2">@Html.LabelFor(m => m.Developer)</div>
+            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Developer, new { @placeholder = "Development studio..." })</div>
+            <div class="col-md-2">@Html.LabelFor(m => m.Publisher)</div>
+            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Publisher, new { @placeholder = "Publishing company..." })</div>
+            
+
+            <div class="col-md-2">Consoles:</div>
+            <div class="col-md-10">
+                @for (int i = 0; i < Model.consolesList.Count; i++)
+                {
+                    <div class="console-checkbox">
+                            <label>
+                                @Model.consolesList[i].Name
+                            @if (Model.GamesFors != null && Model.GamesFors.Any(p => p.ConsoleID == i + 1))
+                            {
+                                @Html.CheckBoxFor(m => m.chosenConsoles[i], new {@id = @Model.consolesList[i].ID, @checked = "true" })
+                            }
+                            else
+                            {
+                                @Html.CheckBoxFor(m => m.chosenConsoles[i], new { @id = @Model.consolesList[i].ID })
+                            }
+                                </label>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.BoxArtLink, new { @placeholder = "Paste a link to the box art image..." })</div>
+
+            <div id="AddGame-btn">
+                <button class="btn-lg btn-primary" type="submit" name="AddGame">Update Game!</button>
+            </div>
+        }
+
+    </div>
+}

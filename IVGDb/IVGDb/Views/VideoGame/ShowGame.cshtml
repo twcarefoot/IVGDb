@@ -14,10 +14,11 @@
     @if(User.Identity.Name.Length > 0)
     { 
         <div class="game-controls">
-            <a href=""><i class="glyphicon glyphicon-wrench"></i></a>
-            <a href=""><i class="glyphicon glyphicon-trash"></i></a>
+            <a href="~/VideoGame/EditGame?gameID=@Model.GameID"><i class="glyphicon glyphicon-wrench"></i></a>
+            <a href="~/VideoGame/DeleteGame?gameID=@Model.GameID"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
     }
+        
     </h2>
 
     <div class="game-container">
@@ -39,8 +40,13 @@
                     @Html.DisplayFor(m => m.ReleaseDate)
                 </p>
                 <p>
-                    @Html.LabelFor(m => m.Console)
-                    @Html.DisplayFor(m => m.Console)
+                    @if (Model.GamesFors != null && Model.GamesFors.Count > 0)
+                    {
+                        foreach (GamesFor gameConsole in Model.GamesFors)
+                        {
+                            <span class="label label-danger">@gameConsole.Console.Name</span>;
+                        }
+                    }
                 </p>
             </div>
             <div class="game-information-synopsis">

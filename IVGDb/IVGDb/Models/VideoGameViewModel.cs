@@ -20,6 +20,14 @@ namespace IVGDb.Models
                 return null;
         }
 
+        public static List<GamesFor> GetGameConsoles(int gameID)
+        {
+            if (db.GamesFors.Any(p => p.GameID == gameID))
+                return db.GamesFors.Where(p => p.GameID == gameID).ToList();
+            else
+                return null;
+        }
+
         public static VideoGame GetGameByTitle(string title)
         {
             if (db.VideoGames.Any(p => p.Title == title))
@@ -35,14 +43,12 @@ namespace IVGDb.Models
 
         public static List<VideoGame> QueryGames(string title)
         {
-            return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
+            return db.VideoGames.Where(p => p.Title.Contains(title)).OrderBy(p => p.Title).ToList();
         }
 
         public static List<VideoGame> GetFiveNewest()
         {
             return db.VideoGames.OrderByDescending(p => p.GameID).ToList();
         }
-
     }
-
 }

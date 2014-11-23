@@ -53,7 +53,6 @@ H:\TechPro\IVGDb\IVGDb\IVGDb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 H:\TechPro\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.csprojResolveAssemblyReference.cache
 H:\TechPro\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.dll
 H:\TechPro\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.pdb
-C:\Users\Troy\BCIT\IVG\IVGDb\IVGDb\IVGDb\bin\IVGDb.dll.config
 C:\Users\Troy\BCIT\IVG\IVGDb\IVGDb\IVGDb\bin\IVGDb.dll
 C:\Users\Troy\BCIT\IVG\IVGDb\IVGDb\IVGDb\bin\IVGDb.pdb
 C:\Users\Troy\BCIT\IVG\IVGDb\IVGDb\IVGDb\bin\Antlr3.Runtime.dll
@@ -163,3 +162,4 @@ C:\Projects\IVGDb\IVGDb\IVGDb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.csprojResolveAssemblyReference.cache
 C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.dll
 C:\Projects\IVGDb\IVGDb\IVGDb\obj\Debug\IVGDb.pdb
+C:\Users\Troy\BCIT\IVG\IVGDb\IVGDb\IVGDb\bin\IVGDb.dll.config

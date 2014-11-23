@@ -1,0 +1,15 @@
+﻿@using IVGDb.Models;
+
+@model VideoGame
+
+@{
+    ViewBag.Title = "Deletegame";
+}
+
+<h2>Delete Game</h2>
+@using (Html.BeginForm("DeleteGame", "VideoGame", FormMethod.Post)) { 
+    <button type="submit" class="btn-danger btn-lg">Are you sure you want to delete @Model.Title?</button>
+    @Html.HiddenFor(m => m.GameID);
+}
+
+<button class="btn-primary btn-lg">Return to @Model.Title</button>

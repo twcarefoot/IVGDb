@@ -6,7 +6,7 @@
     ViewBag.Title = "Results";
 }
 
-<h2>Results for "<i>@ViewBag.searchQuery</i>"</h2>
+<h2>Search for "<i>@ViewBag.searchQuery</i>" returned @Model.Count result(s)</h2>
 <div class="results-container">
     @if (Model != null)
     {
@@ -18,9 +18,7 @@
                     <div class="results-heading-title">
                         <a href="~/VideoGame/ShowGame?gameID=@item.GameID">@item.Title</a>
                     </div>
-                    <div class="results-console">
-                        <span class="label label-danger">@item.Console</span>
-                    </div>
+                    <div class="results-console"></div>
                 </div>
                 <div class="results-body">
                     <div class="results-box-art">
@@ -32,25 +30,16 @@
                             <strong>Publisher: </strong>@item.Publisher <br />
                             <strong>Developer: </strong>@item.Developer <br />
                             <strong>Release Date: </strong>@item.ReleaseDate<br />
-                            <strong>Rating: </strong>90% <br />
-                        </div>
-                        <div class="results-rating">
+                            <strong>Consoles: </strong>
+                            @foreach (GamesFor gameConsole in item.GamesFors)
+                            {
+                                <span class="label label-danger">@gameConsole.Console.Name</span>;
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         }
-        
-    <ul class="pagination pagination-sm">
-        @Model.Count Results
-        <li class="disabled"><a href="#">«</a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">»</a></li>
-    </ul>
     }
 
 

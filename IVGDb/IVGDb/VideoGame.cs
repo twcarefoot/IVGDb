@@ -31,5 +31,8 @@ namespace IVGDb
     
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<GamesFor> GamesFors { get; set; }
+
+        public List<bool> chosenConsoles { get; set; }
+        public List<Console> consolesList { get; set; }
     }
 }
