@@ -27,6 +27,52 @@
             e.preventDefault();
     });
 
+    $('#Form-login').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glypchicon-refresh'
+        },
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Username is required!'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Password is required!'
+                    }
+                }
+            }
+        }
+    });
+
+    // Login button click handler
+    $('#Btn-login').on('click', function () {
+        bootbox
+            .dialog({
+                title: 'Login',
+                message: $('#Form-login'),
+                show: false // We will show it manually later
+            })
+            .on('shown.bs.modal', function () {
+                $('#Form-login')
+                    .show()                                 // Show the login form
+                    .bootstrapValidator('resetForm', true); // Reset form
+            })
+            .on('hide.bs.modal', function (e) {
+                // Bootbox will remove the modal (including the body which contains the login form)
+                // after hiding the modal
+                // Therefor, we need to backup the form
+                $('#Form-login').hide().appendTo('body');
+            })
+            .modal('show');
+    });
+
 });
 
 function validateUsername() {

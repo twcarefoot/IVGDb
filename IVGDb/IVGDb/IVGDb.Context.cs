@@ -30,5 +30,6 @@ namespace IVGDb
         public virtual DbSet<VideoGame> VideoGames { get; set; }
         public virtual DbSet<Console> Consoles { get; set; }
         public virtual DbSet<GamesFor> GamesFors { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
     }
 }

@@ -9,7 +9,9 @@ namespace IVGDb.Models
     {
         public string ConfirmPassword { get; set; }
 
-        public bool LoggedIn { get; set; }
+        public string Role { get; set; }
+
+        public List<VideoGame> TopFiveLatest { get; set; }
 
         private static ivgdb_Entities db = new ivgdb_Entities();
 
@@ -22,6 +24,10 @@ namespace IVGDb.Models
         {
             return db.Users.Where(p => p.Username == username).Select(p => p.Password).First();
         }
+
+        //public static string GetUserRole(string username)
+        //{
+        //}
 
         public static string GetUserImageURL(string username)
         {

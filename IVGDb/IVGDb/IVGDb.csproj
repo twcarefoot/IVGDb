@@ -197,6 +197,9 @@
     <Compile Include="Rating.cs">
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>IVGDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>

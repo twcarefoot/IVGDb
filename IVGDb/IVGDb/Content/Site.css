@@ -126,6 +126,9 @@ textarea {
 #Login-menu {
     background: #a1a1a1;
 }
+#Login-link {
+    cursor: pointer;
+}
 .login-input {
     border-radius: 4px;
     padding: 5px;
@@ -138,6 +141,11 @@ textarea {
 }
 #Main-screen {
     margin-left: -60px;
+}
+#Message {
+    display: inline-block;
+    padding: 20px 10px;
+    font-style: italic;
 }
 #Middle-strip {
     background: whitesmoke !important;
@@ -154,6 +162,11 @@ textarea {
 #News-section {
     margin-top: 100px;
 }
+    #News-section iframe {
+        -webkit-box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+    }
 .no-account-link {
     margin-left: 10px;
 }
@@ -177,6 +190,14 @@ textarea {
 #Register-btn { margin-left: 15px; }
 .register-err-msg {
     padding-left: 20px;
+}
+#Registration-warning {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    border: 2px solid #A2A2A2;
+    border-radius: 20px;
+    background: #DDDDDD;
 }
 #Search-form { float: left; }
 #Search-bar {

@@ -29,6 +29,13 @@
           <Property Name="FKGameID" Type="int" Nullable="false" />
           <Property Name="Rating" Type="int" />
         </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserID" />
@@ -39,6 +46,13 @@
           <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
           <Property Name="EmailedConfirmed" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="VideoGame">
           <Key>
@@ -101,11 +115,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserRoles_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRoles_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ivgdb_ModelStoreContainer">
           <EntitySet Name="Consoles" EntityType="Self.Consoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GamesFor" EntityType="Self.GamesFor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoGame" EntityType="Self.VideoGame" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_GamesFor_ConsoleID" Association="Self.FK_GamesFor_ConsoleID">
             <End Role="Consoles" EntitySet="Consoles" />
@@ -122,6 +162,14 @@
           <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
             <End Role="User" EntitySet="User" />
             <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoles_User" Association="Self.FK_UserRoles_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -150,6 +198,7 @@
           <Property Name="UserProfilePicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
           <Property Name="EmailedConfirmed" Type="Boolean" />
+          <NavigationProperty Name="Role" Relationship="ivgdb_Model.UserRoles" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="VideoGame">
           <Key>
@@ -212,6 +261,11 @@
             <End Role="VideoGame" EntitySet="VideoGames" />
             <End Role="GamesFor" EntitySet="GamesFors" />
           </AssociationSet>
+          <EntitySet Name="Roles" EntityType="ivgdb_Model.Role" />
+          <AssociationSet Name="UserRoles" Association="ivgdb_Model.UserRoles">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Console">
           <Key>
@@ -254,6 +308,18 @@
               <PropertyRef Name="GameID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="ivgdb_Model.UserRoles" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <Association Name="UserRoles">
+          <End Type="ivgdb_Model.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="ivgdb_Model.User" Role="User" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -313,6 +379,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ivgdb_Model.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRoles" TypeName="ivgdb_Model.UserRoles" StoreEntitySet="UserRoles">
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="Role">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <Condition ColumnName="RoleID" IsNull="false" />
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

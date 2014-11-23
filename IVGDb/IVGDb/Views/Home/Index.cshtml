@@ -20,29 +20,29 @@
                 <div class="carousel slide" id="myCarousel">
                     <div class="carousel-inner">
 
-                        <div class="item active">
-
-                            <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=1"><img src="http://img.gamefaqs.net/box/9/2/3/50923_front.jpg" alt="" width="640" height="442"></a>
-                            </div>
-
-                        </div><!-- /Slide1 -->
-
-                        <div class="item">
-
-                            <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=2"><img src="http://images51.fotki.com/v282/photos/2/1851932/10314675/supercastlevania4boxart-vi.jpg" alt="" width="640" height="442"></a>
-                            </div>
-
-                        </div><!-- /Slide2 -->
-
-                        <div class="item">
-
-                            <div class="bannerImage">
-                                <a href="~/VideoGame/ShowGame?gameID=3"><img src="http://fantasyanime.com/squaresoft/ctbox_front.jpg" alt="" width="640" height="442"></a>
-                            </div>
-
-                        </div><!-- /Slide3 -->
+                        @for(int i = 0; i < 5; i++)
+                        {
+                            if(i == 0)
+                            {
+                                <div class="item active">
+                                    <div class="bannerImage">
+                                        <a href="~/VideoGame/ShowGame?gameID=@Model.TopFiveLatest[i].GameID.ToString()">
+                                            <img src="@Model.TopFiveLatest[i].BoxArtLink.ToString()" alt="" width="640" height="442" />
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <div class="bannerImage">
+                                        <a href="~/VideoGame/ShowGame?gameID=@Model.TopFiveLatest[i].GameID.ToString()">
+                                            <img src="@Model.TopFiveLatest[i].BoxArtLink.ToString()" alt="" width="640" height="442" />
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
 
                     </div>
 

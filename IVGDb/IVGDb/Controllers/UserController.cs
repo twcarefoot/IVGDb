@@ -109,15 +109,15 @@ namespace IVGDb.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Manage");
+                return RedirectToAction("Manage", "User");
             }
             if(user.UserProfilePicLink != null)
             {
                 UserViewModel.SetProfilePicURL(user);
-                return Manage(user.Username);
+                return RedirectToAction("Manage", "User", new { username = user.Username });
             }
 
-            return RedirectToAction("Manage");            
+            return RedirectToAction("Manage", "User");            
         }
     }
 }

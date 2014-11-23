@@ -38,7 +38,10 @@ namespace IVGDb.Models
             return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
         }
 
-
+        public static List<VideoGame> GetFiveNewest()
+        {
+            return db.VideoGames.OrderByDescending(p => p.GameID).ToList();
+        }
 
     }
 

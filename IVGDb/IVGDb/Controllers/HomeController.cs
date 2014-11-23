@@ -11,14 +11,14 @@ namespace IVGDb.Controllers
     {
         public ActionResult Index()
         {
-            UserViewModel user = (UserViewModel)TempData["user"];
-            if (user != null)
-            {
-                ViewBag.LoggedIn = true;
-                return View(user);
-            }            
+            UserViewModel user = new UserViewModel();
 
-            return View();
+            if(TempData["user"] != null)
+                user = (UserViewModel)TempData["user"];
+
+            user.TopFiveLatest = VideoGameViewModel.GetFiveNewest();
+
+            return View(user);
         }
 
         public ActionResult About()

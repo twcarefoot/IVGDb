@@ -5,15 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f6d3210b148e441a970d2167ba10bed2" Name="Diagram1">
-        <EntityTypeShape EntityType="ivgdb_Model.Rating" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ivgdb_Model.Rating" Width="1.5" PointX="3.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ivgdb_Model.VideoGame" Width="1.5" PointX="4.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ivgdb_Model.VideoGame" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="ivgdb_Model.FK_Rating_Game" ManuallyRouted="false" />
         <AssociationConnector Association="ivgdb_Model.FK_Rating_User" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ivgdb_Model.Console" Width="1.5" PointX="4.5" PointY="7" />
-        <EntityTypeShape EntityType="ivgdb_Model.GamesFor" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ivgdb_Model.Console" Width="1.5" PointX="8.125" PointY="4.125" />
+        <EntityTypeShape EntityType="ivgdb_Model.GamesFor" Width="1.5" PointX="6" PointY="3.875" />
         <AssociationConnector Association="ivgdb_Model.FK_GamesFor_ConsoleID" />
         <AssociationConnector Association="ivgdb_Model.FK_GamesFor_GameID" />
+        <EntityTypeShape EntityType="ivgdb_Model.Role" Width="1.5" PointX="0.625" PointY="4.5" />
+        <AssociationConnector Association="ivgdb_Model.UserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

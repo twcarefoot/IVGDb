@@ -13,9 +13,11 @@
     <div class="row">
         @if (ViewBag.Unregistered == "true")
         { 
-            <div class="text-warning">
-                It appears you aren't logged into your account, or do not have one. Please register or login to your account to 
-                add a game to the database.
+            <div class="text-warning" id="Registration-warning">
+                <span id="Message">
+                    It appears you aren't logged into your account, or do not have one. Please register or <a data-toggle="modal" data-target="#Login-modal">login</a> to your account to
+                    add a game to the database.
+                </span>
             </div>
         }
         <div class="error-msg text-warning">
