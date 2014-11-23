@@ -6,7 +6,7 @@
     ViewBag.Title = "Results";
 }
 
-<h2>Results for "<i>@ViewBag.searchQuery</i>"</h2>
+<h2>Search for "<i>@ViewBag.searchQuery</i>" returned @Model.Count result(s)</h2>
 <div class="results-container">
     @if (Model != null)
     {
@@ -40,17 +40,6 @@
                 </div>
             </div>
         }
-        
-    <ul class="pagination pagination-sm">
-        @Model.Count Results
-        <li class="disabled"><a href="#">«</a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">»</a></li>
-    </ul>
     }
 
 

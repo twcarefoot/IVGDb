@@ -22,7 +22,10 @@ namespace IVGDb.Models
 
         public static List<GamesFor> GetGameConsoles(int gameID)
         {
-            return db.GamesFors.Where(p => p.GameID == gameID).ToList();
+            if (db.GamesFors.Any(p => p.GameID == gameID))
+                return db.GamesFors.Where(p => p.GameID == gameID).ToList();
+            else
+                return null;
         }
 
         public static VideoGame GetGameByTitle(string title)
@@ -40,7 +43,7 @@ namespace IVGDb.Models
 
         public static List<VideoGame> QueryGames(string title)
         {
-            return db.VideoGames.Where(p => p.Title.Contains(title)).ToList();
+            return db.VideoGames.Where(p => p.Title.Contains(title)).OrderBy(p => p.Title).ToList();
         }
     }
 }

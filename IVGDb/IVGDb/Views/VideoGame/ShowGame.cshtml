@@ -12,8 +12,8 @@
         @Html.DisplayFor(m => m.Title)
 
     <div class="game-controls">
-        <a href=""><i class="glyphicon glyphicon-wrench"></i></a>
-        <a href=""><i class="glyphicon glyphicon-trash"></i></a>
+        <a href="~/VideoGame/EditGame?gameID=@Model.GameID"><i class="glyphicon glyphicon-wrench"></i></a>
+        <a href="~/VideoGame/DeleteGame?gameID=@Model.GameID"><i class="glyphicon glyphicon-trash"></i></a>
     </div>
     </h2>
 

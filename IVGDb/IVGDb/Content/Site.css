@@ -392,5 +392,12 @@ textarea {
 }
 
 .console-checkbox{
-    width: 20px;
+    width: 200px;
+    border-radius: 2px;
+    float: left;
+    display: inline-block;
+}
+
+.console-checkbox input[type="checkbox"]{
+    background-color: pink;
 }

@@ -27,20 +27,25 @@ namespace IVGDb.Controllers
             return RedirectToAction("ShowGame", game);
         }
 
-        public ActionResult ShowGame(VideoGameViewModel game, int? gameID)
+        public ActionResult ShowGame(int? gameID)
         {
+            /*
             if (gameID == null && game != null)
             {
                 VideoGame newgame = new VideoGameViewModel();
                 newgame = VideoGameViewModel.GetGameByTitle(game.Title);
                 //newgame.GamesFors = VideoGameViewModel.GetGameConsoles(game.GameID);
                 return View(newgame);
-            }
+            }*/
             if (gameID != null)
             {
-                VideoGame newgame = new VideoGameViewModel();
-                newgame = VideoGameViewModel.GetGameByID((int)gameID);
-                newgame.GamesFors = VideoGameViewModel.GetGameConsoles((int)gameID);
+                VideoGame newgame = new GameConsoleViewModel();
+                newgame = GameConsoleViewModel.GetGameByID((int)gameID);
+                if (newgame == null)
+                {
+                    return View();
+                }
+                newgame.GamesFors = GameConsoleViewModel.GetGameConsoles((int)gameID);
                 return View(newgame);
             }
 
@@ -58,7 +63,7 @@ namespace IVGDb.Controllers
         {
             if (search != null && search.Length > 1)
             {
-                List<VideoGame> gameList = VideoGameViewModel.QueryGames(search);    
+                List<VideoGame> gameList = VideoGameViewModel.QueryGames(search);   
                 ViewBag.searchQuery = search;
                 return View(gameList);
             }
@@ -80,12 +85,61 @@ namespace IVGDb.Controllers
             if (ModelState.IsValid)
             {
                 int newGameID = GameConsoleViewModel.AddNewGame(newGame);
-                VideoGame game = new VideoGameViewModel();
-                game = VideoGameViewModel.GetGameByID(newGameID);
-                return RedirectToAction("ShowGame", game);
+                return RedirectToAction("ShowGame", new
+                {
+                    gameID = newGameID,
+                });
             }
             return View();
         }
 
+        [HttpPost]
+        public ActionResult EditGame(GameConsoleViewModel newGame)
+        {
+            if (ModelState.IsValid)
+            {
+                int newGameID = GameConsoleViewModel.EditGame(newGame);
+                return RedirectToAction("ShowGame", new
+                {
+                    gameID = newGameID,
+                });
+            }
+            return View();
+        }
+
+
+
+        public ActionResult EditGame(int? gameID)
+        {
+            if (gameID != null) {
+                VideoGame vgViewModel = new GameConsoleViewModel();
+                vgViewModel = GameConsoleViewModel.GetGameByID((int)gameID);
+                vgViewModel.consolesList = GameConsoleViewModel.getAllConsoles();
+                vgViewModel.GamesFors = GameConsoleViewModel.GetGameConsoles((int)gameID);
+                return View(vgViewModel);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteGame(VideoGame game)
+        {
+            if (ModelState.IsValid)
+            {
+                GameConsoleViewModel.DeleteGame(game.GameID);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult DeleteGame(int? gameID)
+        {
+            if(gameID != null){
+                VideoGame game = new VideoGameViewModel();
+                game = VideoGameViewModel.GetGameByID((int)gameID);
+                game.GamesFors = VideoGameViewModel.GetGameConsoles((int)gameID);
+                return View(game);
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

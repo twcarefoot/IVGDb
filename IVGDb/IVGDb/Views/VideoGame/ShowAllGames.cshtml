@@ -9,9 +9,11 @@
 @foreach (var game in Model)
 { 
     <p>
-        @game.Title.ToString()
+        @game.Title.ToString();
+        @game.GameID.ToString();
+        @game.Publisher.ToString();
     </p>
     <p>
-        @game.Publisher.ToString();
+        
     </p>
 }
