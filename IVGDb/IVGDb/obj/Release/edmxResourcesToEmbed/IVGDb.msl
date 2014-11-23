@@ -25,6 +25,7 @@
     <EntitySetMapping Name="VideoGames">
       <EntityTypeMapping TypeName="ivgdb_Model.VideoGame">
         <MappingFragment StoreEntitySet="VideoGame">
+          <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
           <ScalarProperty Name="GameID" ColumnName="GameID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Publisher" ColumnName="Publisher" />
@@ -52,5 +53,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ivgdb_Model.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserRoles" TypeName="ivgdb_Model.UserRoles" StoreEntitySet="UserRoles">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserID" ColumnName="UserID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="ID" ColumnName="RoleID" />
+      </EndProperty>
+      <Condition ColumnName="RoleID" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
