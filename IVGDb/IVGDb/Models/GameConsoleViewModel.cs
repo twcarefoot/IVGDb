@@ -8,11 +8,21 @@ namespace IVGDb.Models
 {
     public class GameConsoleViewModel : VideoGame
     {
+        /// <summary>
+        /// List of consoles chosen by the form.
+        /// </summary>
         public List<bool> chosenConsoles { get; set; } //Attribute for chosen game consoles for new game entry
 
+        /// <summary>
+        /// List of video game consoles.
+        /// </summary>
         public List<Console> consolesList { get; set; } //Attribute for chosen game consoles for new game entry
 
+        /// <summary>
+        /// Db context.
+        /// </summary>
         private static ivgdb_Entities db = new ivgdb_Entities();
+		
 
         public static GameConsoleViewModel CreateNewGameConsoleViewModel(VideoGame videogame)
         {
@@ -29,6 +39,10 @@ namespace IVGDb.Models
             return model;
         }
 
+        /// <summary>
+        /// Returns all consoles.
+        /// </summary>
+        /// <returns></returns>
         public static List<Console> getAllConsoles()
         {
             using (ivgdb_Entities db = new ivgdb_Entities())
@@ -37,6 +51,11 @@ namespace IVGDb.Models
             }
         }
 
+        /// <summary>
+        /// Gets all consoles to a list.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public static List<GamesFor> GetGameConsoles(int gameID)
         {
             if (db.GamesFors.Any(p => p.GameID == gameID))
@@ -45,6 +64,11 @@ namespace IVGDb.Models
                 return null;
         }
 
+        /// <summary>
+        /// Returns a game based off of the Game ID.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public static VideoGame GetGameByID(int gameID)
         {
             if (db.VideoGames.Any(p => p.GameID == gameID))
@@ -53,8 +77,12 @@ namespace IVGDb.Models
                 return null;
         }
         
-
-        //Return the ID of the newly added game
+        /// <summary>
+        /// Adds a new game to the database.
+        ///Return the ID of the newly added game
+        /// </summary>
+        /// <param name="newGameModel"></param>
+        /// <returns></returns>
         public static int AddNewGame(GameConsoleViewModel newGameModel)
         {
             using (ivgdb_Entities db = new ivgdb_Entities())
@@ -65,6 +93,8 @@ namespace IVGDb.Models
                 newGame.Developer = newGameModel.Developer;
                 newGame.ReleaseDate = newGameModel.ReleaseDate;
                 newGame.BoxArtLink = newGameModel.BoxArtLink;
+                newGame.Synopsis = newGameModel.Synopsis;
+                //Validation on title.
                 if (newGame.Title != null)
                 {
                     db.VideoGames.Add(newGame);
@@ -85,7 +115,12 @@ namespace IVGDb.Models
             }
         }
 
-
+        /// <summary>
+        /// Delete a game from the database.
+        /// We want users to be absolutely sure they want to delete.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public static int DeleteGame(int gameID)
         {
             using (ivgdb_Entities db = new ivgdb_Entities())
@@ -102,6 +137,11 @@ namespace IVGDb.Models
             return 0;
         }
 
+        /// <summary>
+        /// Users can change a games information if it is incorrect.
+        /// </summary>
+        /// <param name="editGame"></param>
+        /// <returns></returns>
         internal static int EditGame(GameConsoleViewModel editGame)
         {
             using (ivgdb_Entities db = new ivgdb_Entities())
@@ -112,6 +152,7 @@ namespace IVGDb.Models
                 updatingGame.Developer = editGame.Developer;
                 updatingGame.ReleaseDate = editGame.ReleaseDate;
                 updatingGame.BoxArtLink = editGame.BoxArtLink;
+                updatingGame.Synopsis = editGame.Synopsis;
                 if (editGame.Title != null)
                 {
                     //Clear the database with all console entries

@@ -22,6 +22,7 @@
     <Property Name="UserProfilePicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
     <Property Name="EmailedConfirmed" Type="Boolean" />
+    <NavigationProperty Name="Role" Relationship="ivgdb_Model.UserRoles" FromRole="User" ToRole="Role" />
   </EntityType>
   <EntityType Name="VideoGame">
     <Key>
@@ -36,6 +37,7 @@
     <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
     <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
+    <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Rating_Game">
     <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
@@ -83,6 +85,11 @@
       <End Role="VideoGame" EntitySet="VideoGames" />
       <End Role="GamesFor" EntitySet="GamesFors" />
     </AssociationSet>
+    <EntitySet Name="Roles" EntityType="ivgdb_Model.Role" />
+    <AssociationSet Name="UserRoles" Association="ivgdb_Model.UserRoles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Console">
     <Key>
@@ -125,5 +132,17 @@
         <PropertyRef Name="GameID" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="ivgdb_Model.UserRoles" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <Association Name="UserRoles">
+    <End Type="ivgdb_Model.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="ivgdb_Model.User" Role="User" Multiplicity="*" />
   </Association>
 </Schema>

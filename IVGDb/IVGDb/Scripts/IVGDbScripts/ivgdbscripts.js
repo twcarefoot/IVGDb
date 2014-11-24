@@ -1,5 +1,22 @@
 ﻿$(document).ready(function () {
 
+    $('input#NewGame-title').change(function () {
+        validateTitle();
+    });
+
+    function validateTitle() {
+        var name = $('input#NewGame-title').val();
+        if (name.length == 0) {
+            $('#GameTitleErr').text('Title Is Required');
+            return false;
+        }
+        if (name.length >= 1) {
+            $('#GameTitleErr').text('OK!');
+            return true;
+        }
+    }
+
+
     $('input#Register-username').change(function () {
         validateUsername();
     });
