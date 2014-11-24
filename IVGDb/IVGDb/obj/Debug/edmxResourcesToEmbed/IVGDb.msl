@@ -1,6 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ivgdb_ModelStoreContainer" CdmEntityContainer="ivgdb_Entities">
+    <EntitySetMapping Name="Consoles">
+      <EntityTypeMapping TypeName="ivgdb_Model.Console">
+        <MappingFragment StoreEntitySet="Consoles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GamesFors">
+      <EntityTypeMapping TypeName="ivgdb_Model.GamesFor">
+        <MappingFragment StoreEntitySet="GamesFor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GameID" ColumnName="GameID" />
+          <ScalarProperty Name="ConsoleID" ColumnName="ConsoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Ratings">
       <EntityTypeMapping TypeName="ivgdb_Model.Rating">
         <MappingFragment StoreEntitySet="Rating">
@@ -10,22 +27,38 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ivgdb_Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="ivgdb_Model.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="EmailedConfirmed" ColumnName="EmailedConfirmed" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="UserProfilePicLink" ColumnName="UserProfilePicLink" />
+          <ScalarProperty Name="EmailedConfirmed" ColumnName="EmailedConfirmed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersRoles">
+      <EntityTypeMapping TypeName="ivgdb_Model.UsersRole">
+        <MappingFragment StoreEntitySet="UsersRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VideoGames">
       <EntityTypeMapping TypeName="ivgdb_Model.VideoGame">
         <MappingFragment StoreEntitySet="VideoGame">
-          <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
           <ScalarProperty Name="GameID" ColumnName="GameID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Publisher" ColumnName="Publisher" />
@@ -33,23 +66,7 @@
           <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
           <ScalarProperty Name="Console" ColumnName="Console" />
           <ScalarProperty Name="BoxArtLink" ColumnName="BoxArtLink" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Consoles">
-      <EntityTypeMapping TypeName="ivgdb_Model.Console">
-        <MappingFragment StoreEntitySet="Consoles">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GamesFors">
-      <EntityTypeMapping TypeName="ivgdb_Model.GamesFor">
-        <MappingFragment StoreEntitySet="GamesFor">
-          <ScalarProperty Name="ConsoleID" ColumnName="ConsoleID" />
-          <ScalarProperty Name="GameID" ColumnName="GameID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Synopsis" ColumnName="Synopsis" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

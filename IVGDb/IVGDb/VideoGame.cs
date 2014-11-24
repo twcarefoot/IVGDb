@@ -16,8 +16,8 @@ namespace IVGDb
     {
         public VideoGame()
         {
-            this.Ratings = new HashSet<Rating>();
             this.GamesFors = new HashSet<GamesFor>();
+            this.Ratings = new HashSet<Rating>();
         }
     
         public int GameID { get; set; }
@@ -29,10 +29,7 @@ namespace IVGDb
         public string BoxArtLink { get; set; }
         public string Synopsis { get; set; }
     
-        public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<GamesFor> GamesFors { get; set; }
-
-        public List<bool> chosenConsoles { get; set; }
-        public List<Console> consolesList { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }

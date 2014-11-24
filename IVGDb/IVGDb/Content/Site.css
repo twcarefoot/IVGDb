@@ -104,6 +104,11 @@ textarea {
     background: none;
     box-shadow: none;
 }
+.custom-manage-div {
+    float: left;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -242,6 +247,9 @@ textarea {
     #User-profile #User-img {
         background-image: url('http://placehold.it/200x200');
     }
+.user-manage-msg {
+    float: left;
+}
 .write-up-section {
     height: 250px;
     border: 2px solid #A1A1A1;

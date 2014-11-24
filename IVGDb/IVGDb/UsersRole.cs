@@ -12,21 +12,13 @@ namespace IVGDb
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class UsersRole
     {
-        public User()
-        {
-            this.Ratings = new HashSet<Rating>();
-        }
-    
+        public int ID { get; set; }
         public int UserID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string UserProfilePicLink { get; set; }
-        public Nullable<bool> EmailedConfirmed { get; set; }
+        public int RoleID { get; set; }
     
-        public virtual ICollection<Rating> Ratings { get; set; }
-        public virtual UsersRole UsersRole { get; set; }
+        public virtual Role Role { get; set; }
+        public virtual User User { get; set; }
     }
 }

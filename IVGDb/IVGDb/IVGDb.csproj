@@ -162,6 +162,7 @@
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VideoGameController.cs" />
     <Compile Include="GamesFor.cs">
@@ -190,6 +191,7 @@
     <Compile Include="Models\GameConsoleViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\VideoGameViewModel.cs" />
@@ -201,6 +203,9 @@
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>IVGDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersRole.cs">
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>
     <Compile Include="VideoGame.cs">
@@ -342,9 +347,11 @@
     <Content Include="Views\VideoGame\AddNewGame.cshtml" />
     <Content Include="Views\VideoGame\EditGame.cshtml" />
     <Content Include="Views\VideoGame\DeleteGame.cshtml" />
+    <Content Include="Views\Home\Banned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

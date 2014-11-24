@@ -16,12 +16,12 @@ namespace IVGDb
     {
         public Role()
         {
-            this.Users = new HashSet<User>();
+            this.UsersRoles = new HashSet<UsersRole>();
         }
     
-        public int ID { get; set; }
+        public int RoleID { get; set; }
         public string RoleName { get; set; }
     
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<UsersRole> UsersRoles { get; set; }
     }
 }

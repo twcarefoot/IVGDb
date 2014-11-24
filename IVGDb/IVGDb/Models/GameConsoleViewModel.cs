@@ -14,6 +14,21 @@ namespace IVGDb.Models
 
         private static ivgdb_Entities db = new ivgdb_Entities();
 
+        public static GameConsoleViewModel CreateNewGameConsoleViewModel(VideoGame videogame)
+        {
+            GameConsoleViewModel model = new GameConsoleViewModel();
+            model.GameID = videogame.GameID;
+            model.Title = videogame.Title;
+            model.Publisher = videogame.Publisher;
+            model.Developer = videogame.Developer;
+            model.ReleaseDate = videogame.ReleaseDate;
+            model.Console = videogame.Console;
+            model.BoxArtLink = videogame.BoxArtLink;
+            model.Synopsis = videogame.Synopsis;
+
+            return model;
+        }
+
         public static List<Console> getAllConsoles()
         {
             using (ivgdb_Entities db = new ivgdb_Entities())

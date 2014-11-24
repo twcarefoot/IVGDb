@@ -29,14 +29,6 @@ namespace IVGDb.Controllers
 
         public ActionResult ShowGame(int? gameID)
         {
-            /*
-            if (gameID == null && game != null)
-            {
-                VideoGame newgame = new VideoGameViewModel();
-                newgame = VideoGameViewModel.GetGameByTitle(game.Title);
-                //newgame.GamesFors = VideoGameViewModel.GetGameConsoles(game.GameID);
-                return View(newgame);
-            }*/
             if (gameID != null)
             {
                 VideoGame newgame = new GameConsoleViewModel();
@@ -112,12 +104,10 @@ namespace IVGDb.Controllers
         }
 
 
-
         public ActionResult EditGame(int? gameID)
         {
             if (gameID != null) {
-                VideoGame vgViewModel = new GameConsoleViewModel();
-                vgViewModel = GameConsoleViewModel.GetGameByID((int)gameID);
+                GameConsoleViewModel vgViewModel = GameConsoleViewModel.CreateNewGameConsoleViewModel(GameConsoleViewModel.GetGameByID((int)gameID));
                 vgViewModel.consolesList = GameConsoleViewModel.getAllConsoles();
                 vgViewModel.GamesFors = GameConsoleViewModel.GetGameConsoles((int)gameID);
                 return View(vgViewModel);

@@ -30,6 +30,11 @@ namespace IVGDb.Controllers
 
             bool userExists = UserViewModel.UserExists(Username);
 
+            bool userBanned = UserViewModel.IsUserBanned(Username);
+
+            if (userBanned)
+                return RedirectToAction("Banned", "Home", new { banned = true });
+
             if (userExists)
             {
                 bool passwordsMatch = UserViewModel.VerifyPassword(Username, Password);
@@ -61,7 +66,10 @@ namespace IVGDb.Controllers
         {
             if (username != null)
             {
-                User user = UserViewModel.GetUser(username);
+                UserViewModel user = UserViewModel.CreateUserViewModel(UserViewModel.GetUser(username));
+                user.AdminList = UserViewModel.GetAllUsersRoles();
+                user.Role = UserViewModel.GetUserRole(username);
+                ViewBag.RolesList = RoleModel.GetRoles();
                 return View(user);
             }
 

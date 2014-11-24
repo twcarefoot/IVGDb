@@ -130,7 +130,7 @@ function validateConfirmPassword() {
     }
     if (confpass === pass) {
         $('#ConfirmPassErr').text('');
-        return false;
+        return true;
     }
 
 }
