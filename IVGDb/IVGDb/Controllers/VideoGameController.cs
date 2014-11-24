@@ -9,6 +9,11 @@ namespace IVGDb.Controllers
 {
     public class VideoGameController : Controller
     {
+        /// <summary>
+        /// Main page index method.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public ActionResult Index(VideoGameViewModel model)
         {
             if (model != null)
@@ -17,6 +22,11 @@ namespace IVGDb.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Get Game.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult GetGame(string title)
         {
@@ -27,6 +37,12 @@ namespace IVGDb.Controllers
             return RedirectToAction("ShowGame", game);
         }
 
+        /// <summary>
+        /// Displays the game on a game page.
+        /// Validation for parameters.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public ActionResult ShowGame(int? gameID)
         {
             /*
@@ -52,13 +68,22 @@ namespace IVGDb.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Displays a list of all games presently added in the database.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ShowAllGames()
         {
             List<VideoGame> list = new List<VideoGame>();
             list = VideoGameViewModel.GetAllGames();
             return View(list);
         }
-
+        
+        /// <summary>
+        /// Queries the database based of of URL parameters.
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
         public ActionResult Results(String search)
         {
             if (search != null && search.Length > 1)
@@ -71,7 +96,11 @@ namespace IVGDb.Controllers
         }
 
         
-
+        /// <summary>
+        /// Method to add a new game to the database.
+        /// Users must be logged in to do so.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult AddNewGame()
         {
             if (User.Identity.Name.Length == 0)
@@ -83,6 +112,14 @@ namespace IVGDb.Controllers
             return View(vgViewModel);
         }
 
+        /// <summary>
+        /// Post method to add new game to database.
+        /// Games require a title only.
+        /// Other fields can be null because the purpose of the website it to gain as much knowledge
+        /// and continually add the data from users.
+        /// </summary>
+        /// <param name="newGame"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddNewGame(GameConsoleViewModel newGame)
         {
@@ -102,6 +139,11 @@ namespace IVGDb.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Post method for editing a game.
+        /// </summary>
+        /// <param name="newGame"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EditGame(GameConsoleViewModel newGame)
         {
@@ -116,8 +158,11 @@ namespace IVGDb.Controllers
             return View();
         }
 
-
-
+        /// <summary>
+        /// Displays the edit game form. Prepopulates the field based off of the game data.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public ActionResult EditGame(int? gameID)
         {
             if (gameID != null) {
@@ -130,6 +175,11 @@ namespace IVGDb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Deletes the game from the database.
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult DeleteGame(VideoGame game)
         {
@@ -140,6 +190,12 @@ namespace IVGDb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Displays the delete game form.
+        /// Asks the user for absolute confirmation.
+        /// </summary>
+        /// <param name="gameID"></param>
+        /// <returns></returns>
         public ActionResult DeleteGame(int? gameID)
         {
             if(gameID != null){
