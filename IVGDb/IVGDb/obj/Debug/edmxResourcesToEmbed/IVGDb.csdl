@@ -18,17 +18,6 @@
     <NavigationProperty Name="Console" Relationship="Self.FK_GamesFor_ConsoleID" FromRole="GamesFor" ToRole="Consoles" />
     <NavigationProperty Name="VideoGame" Relationship="Self.FK_GamesFor_GameID" FromRole="GamesFor" ToRole="VideoGame" />
   </EntityType>
-  <EntityType Name="Rating">
-    <Key>
-      <PropertyRef Name="FKUserID" />
-      <PropertyRef Name="FKGameID" />
-    </Key>
-    <Property Name="FKUserID" Type="Int32" Nullable="false" />
-    <Property Name="FKGameID" Type="Int32" Nullable="false" />
-    <Property Name="Rating1" Type="Int32" />
-    <NavigationProperty Name="VideoGame" Relationship="Self.FK_Rating_Game" FromRole="Rating" ToRole="VideoGame" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Rating_User" FromRole="Rating" ToRole="User" />
-  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -47,7 +36,6 @@
     <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserProfilePicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="EmailedConfirmed" Type="Boolean" />
-    <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
     <NavigationProperty Name="UsersRole" Relationship="Self.FK_UsersRoles_Users" FromRole="User" ToRole="UsersRole" />
   </EntityType>
   <EntityType Name="UsersRole">
@@ -73,7 +61,6 @@
     <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="GamesFors" Relationship="Self.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
-    <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
   </EntityType>
   <Association Name="FK_GamesFor_ConsoleID">
     <End Role="Consoles" Type="Self.Console" Multiplicity="1" />
@@ -96,30 +83,6 @@
       </Principal>
       <Dependent Role="GamesFor">
         <PropertyRef Name="GameID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Rating_Game">
-    <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VideoGame">
-        <PropertyRef Name="GameID" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKGameID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Rating_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKUserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -150,7 +113,6 @@
   <EntityContainer Name="ivgdb_Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Consoles" EntityType="Self.Console" />
     <EntitySet Name="GamesFors" EntityType="Self.GamesFor" />
-    <EntitySet Name="Ratings" EntityType="Self.Rating" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="UsersRoles" EntityType="Self.UsersRole" />
@@ -162,14 +124,6 @@
     <AssociationSet Name="FK_GamesFor_GameID" Association="Self.FK_GamesFor_GameID">
       <End Role="VideoGame" EntitySet="VideoGames" />
       <End Role="GamesFor" EntitySet="GamesFors" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
-      <End Role="VideoGame" EntitySet="VideoGames" />
-      <End Role="Rating" EntitySet="Ratings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Rating" EntitySet="Ratings" />
     </AssociationSet>
     <AssociationSet Name="FK_UsersRoles_Roles" Association="Self.FK_UsersRoles_Roles">
       <End Role="Role" EntitySet="Roles" />

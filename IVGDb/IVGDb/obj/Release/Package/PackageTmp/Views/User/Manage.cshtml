@@ -1,12 +1,12 @@
 ﻿@using IVGDb.Models;
 
-@model User
+@model UserViewModel
 
 @{
     ViewBag.Title = "Manage";
 }
 
-@if(Session["LoggedIn"] == "true")
+@if(User.Identity.Name.Length > 0)
 { 
     <div class="row" id="User-profile">
         <div class="col-sm-3">
@@ -15,6 +15,39 @@
         <div class="col-sm-2">
             <h3>@Html.DisplayFor(m => m.Username)</h3>
         </div>
+        @if(Model.Role == 1)
+        { 
+        <div class="row col-sm-7">
+            <div class="col-sm-12" id="Role-log">
+                <h3>Manage Users</h3>
+                @foreach (var user in Model.AdminList)
+                {
+                    <div class="custom-manage-div">
+                        <input type="text" disabled="disabled" value="@user.User.Username" />
+                        <input type="hidden" name="username" value="@user.User.Username" />
+                    </div>
+                    <div class="custom-manage-div">
+                        <select name="role">
+                            @foreach (var role in ViewBag.RolesList)
+                            {
+                                if (role.RoleName == user.Role.RoleName)
+                                {
+                                    <option value="@role.ID" selected="selected">@role.RoleName</option>
+                                }
+                                else
+                                {
+                                    <option value="@role.ID">@role.RoleName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="custom-manage-div">
+                        <button type="submit" class="btn btn-default">Update</button>
+                    </div>
+                }
+            </div>
+        </div>
+        }
     </div>
     
     <!-- Modal Window -->

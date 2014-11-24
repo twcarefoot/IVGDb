@@ -196,9 +196,6 @@
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\VideoGameViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rating.cs">
-      <DependentUpon>IVGDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>IVGDb.tt</DependentUpon>
     </Compile>

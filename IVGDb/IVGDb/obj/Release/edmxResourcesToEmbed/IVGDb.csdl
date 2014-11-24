@@ -1,15 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ivgdb_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Rating">
+  <EntityType Name="Console">
     <Key>
-      <PropertyRef Name="FKUserID" />
-      <PropertyRef Name="FKGameID" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="FKUserID" Type="Int32" Nullable="false" />
-    <Property Name="FKGameID" Type="Int32" Nullable="false" />
-    <Property Name="Rating1" Type="Int32" />
-    <NavigationProperty Name="VideoGame" Relationship="Self.FK_Rating_Game" FromRole="Rating" ToRole="VideoGame" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Rating_User" FromRole="Rating" ToRole="User" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="GamesFors" Relationship="Self.FK_GamesFor_ConsoleID" FromRole="Consoles" ToRole="GamesFor" />
+  </EntityType>
+  <EntityType Name="GamesFor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameID" Type="Int32" Nullable="false" />
+    <Property Name="ConsoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Console" Relationship="Self.FK_GamesFor_ConsoleID" FromRole="GamesFor" ToRole="Consoles" />
+    <NavigationProperty Name="VideoGame" Relationship="Self.FK_GamesFor_GameID" FromRole="GamesFor" ToRole="VideoGame" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UsersRoles" Relationship="Self.FK_UsersRoles_Roles" FromRole="Role" ToRole="UsersRole" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -20,9 +35,18 @@
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserProfilePicLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
     <Property Name="EmailedConfirmed" Type="Boolean" />
-    <NavigationProperty Name="Role" Relationship="ivgdb_Model.UserRoles" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="UsersRole" Relationship="Self.FK_UsersRoles_Users" FromRole="User" ToRole="UsersRole" />
+  </EntityType>
+  <EntityType Name="UsersRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_UsersRoles_Roles" FromRole="UsersRole" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UsersRoles_Users" FromRole="UsersRole" ToRole="User" />
   </EntityType>
   <EntityType Name="VideoGame">
     <Key>
@@ -35,85 +59,14 @@
     <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
     <Property Name="Console" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BoxArtLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Game" FromRole="VideoGame" ToRole="Rating" />
-    <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
     <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <Association Name="FK_Rating_Game">
-    <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VideoGame">
-        <PropertyRef Name="GameID" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKGameID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Rating_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKUserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="ivgdb_Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Ratings" EntityType="Self.Rating" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="VideoGames" EntityType="Self.VideoGame" />
-    <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
-      <End Role="VideoGame" EntitySet="VideoGames" />
-      <End Role="Rating" EntitySet="Ratings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Rating" EntitySet="Ratings" />
-    </AssociationSet>
-    <EntitySet Name="Consoles" EntityType="ivgdb_Model.Console" />
-    <EntitySet Name="GamesFors" EntityType="ivgdb_Model.GamesFor" />
-    <AssociationSet Name="FK_GamesFor_ConsoleID" Association="ivgdb_Model.FK_GamesFor_ConsoleID">
-      <End Role="Console" EntitySet="Consoles" />
-      <End Role="GamesFor" EntitySet="GamesFors" />
-    </AssociationSet>
-    <AssociationSet Name="FK_GamesFor_GameID" Association="ivgdb_Model.FK_GamesFor_GameID">
-      <End Role="VideoGame" EntitySet="VideoGames" />
-      <End Role="GamesFor" EntitySet="GamesFors" />
-    </AssociationSet>
-    <EntitySet Name="Roles" EntityType="ivgdb_Model.Role" />
-    <AssociationSet Name="UserRoles" Association="ivgdb_Model.UserRoles">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Console">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="GamesFors" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="Console" ToRole="GamesFor" />
-  </EntityType>
-  <EntityType Name="GamesFor">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GameID" Type="Int32" Nullable="false" />
-    <Property Name="ConsoleID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Console" Relationship="ivgdb_Model.FK_GamesFor_ConsoleID" FromRole="GamesFor" ToRole="Console" />
-    <NavigationProperty Name="VideoGame" Relationship="ivgdb_Model.FK_GamesFor_GameID" FromRole="GamesFor" ToRole="VideoGame" />
+    <NavigationProperty Name="GamesFors" Relationship="Self.FK_GamesFor_GameID" FromRole="VideoGame" ToRole="GamesFor" />
   </EntityType>
   <Association Name="FK_GamesFor_ConsoleID">
-    <End Type="ivgdb_Model.Console" Role="Console" Multiplicity="1" />
-    <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+    <End Role="Consoles" Type="Self.Console" Multiplicity="1" />
+    <End Role="GamesFor" Type="Self.GamesFor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Console">
+      <Principal Role="Consoles">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="GamesFor">
@@ -122,8 +75,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_GamesFor_GameID">
-    <End Type="ivgdb_Model.VideoGame" Role="VideoGame" Multiplicity="1" />
-    <End Type="ivgdb_Model.GamesFor" Role="GamesFor" Multiplicity="*" />
+    <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
+    <End Role="GamesFor" Type="Self.GamesFor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VideoGame">
         <PropertyRef Name="GameID" />
@@ -133,16 +86,52 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Role">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Users" Relationship="ivgdb_Model.UserRoles" FromRole="Role" ToRole="User" />
-  </EntityType>
-  <Association Name="UserRoles">
-    <End Type="ivgdb_Model.Role" Role="Role" Multiplicity="0..1" />
-    <End Type="ivgdb_Model.User" Role="User" Multiplicity="*" />
+  <Association Name="FK_UsersRoles_Roles">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UsersRole" Type="Self.UsersRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="UsersRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UsersRoles_Users">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UsersRole" Type="Self.UsersRole" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UsersRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ivgdb_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Consoles" EntityType="Self.Console" />
+    <EntitySet Name="GamesFors" EntityType="Self.GamesFor" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UsersRoles" EntityType="Self.UsersRole" />
+    <EntitySet Name="VideoGames" EntityType="Self.VideoGame" />
+    <AssociationSet Name="FK_GamesFor_ConsoleID" Association="Self.FK_GamesFor_ConsoleID">
+      <End Role="Consoles" EntitySet="Consoles" />
+      <End Role="GamesFor" EntitySet="GamesFors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GamesFor_GameID" Association="Self.FK_GamesFor_GameID">
+      <End Role="VideoGame" EntitySet="VideoGames" />
+      <End Role="GamesFor" EntitySet="GamesFors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersRoles_Roles" Association="Self.FK_UsersRoles_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UsersRole" EntitySet="UsersRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersRoles_Users" Association="Self.FK_UsersRoles_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UsersRole" EntitySet="UsersRoles" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

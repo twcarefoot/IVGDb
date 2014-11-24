@@ -15,21 +15,12 @@
     <Property Name="GameID" Type="int" Nullable="false" />
     <Property Name="ConsoleID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Rating">
+  <EntityType Name="Role">
     <Key>
-      <PropertyRef Name="FKUserID" />
-      <PropertyRef Name="FKGameID" />
+      <PropertyRef Name="RoleID" />
     </Key>
-    <Property Name="FKUserID" Type="int" Nullable="false" />
-    <Property Name="FKGameID" Type="int" Nullable="false" />
-    <Property Name="Rating" Type="int" />
-  </EntityType>
-  <EntityType Name="Roles">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -42,10 +33,11 @@
     <Property Name="UserProfilePicLink" Type="nvarchar(max)" />
     <Property Name="EmailedConfirmed" Type="bit" />
   </EntityType>
-  <EntityType Name="UserRoles">
+  <EntityType Name="UsersRole">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="RoleID" Type="int" Nullable="false" />
   </EntityType>
@@ -86,50 +78,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Rating_Game">
-    <End Role="VideoGame" Type="Self.VideoGame" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+  <Association Name="FK_UsersRoles_Roles">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UsersRole" Type="Self.UsersRole" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="VideoGame">
-        <PropertyRef Name="GameID" />
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
       </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKGameID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Rating_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="FKUserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserRoles_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="UserRoles">
+      <Dependent Role="UsersRole">
         <PropertyRef Name="RoleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserRoles_User">
+  <Association Name="FK_UsersRoles_Users">
     <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="0..1" />
+    <End Role="UsersRole" Type="Self.UsersRole" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="UserRoles">
+      <Dependent Role="UsersRole">
         <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
@@ -137,10 +105,9 @@
   <EntityContainer Name="ivgdb_ModelStoreContainer">
     <EntitySet Name="Consoles" EntityType="Self.Consoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GamesFor" EntityType="Self.GamesFor" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersRole" EntityType="Self.UsersRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoGame" EntityType="Self.VideoGame" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_GamesFor_ConsoleID" Association="Self.FK_GamesFor_ConsoleID">
       <End Role="Consoles" EntitySet="Consoles" />
@@ -150,21 +117,13 @@
       <End Role="VideoGame" EntitySet="VideoGame" />
       <End Role="GamesFor" EntitySet="GamesFor" />
     </AssociationSet>
-    <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
-      <End Role="VideoGame" EntitySet="VideoGame" />
-      <End Role="Rating" EntitySet="Rating" />
+    <AssociationSet Name="FK_UsersRoles_Roles" Association="Self.FK_UsersRoles_Roles">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UsersRole" EntitySet="UsersRole" />
     </AssociationSet>
-    <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
+    <AssociationSet Name="FK_UsersRoles_Users" Association="Self.FK_UsersRoles_Users">
       <End Role="User" EntitySet="User" />
-      <End Role="Rating" EntitySet="Rating" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="UserRoles" EntitySet="UserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserRoles_User" Association="Self.FK_UserRoles_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="UsersRole" EntitySet="UsersRole" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

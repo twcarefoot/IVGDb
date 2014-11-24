@@ -14,11 +14,6 @@ namespace IVGDb
     
     public partial class User
     {
-        public User()
-        {
-            this.Ratings = new HashSet<Rating>();
-        }
-    
         public int UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -26,7 +21,6 @@ namespace IVGDb
         public string UserProfilePicLink { get; set; }
         public Nullable<bool> EmailedConfirmed { get; set; }
     
-        public virtual ICollection<Rating> Ratings { get; set; }
         public virtual UsersRole UsersRole { get; set; }
     }
 }

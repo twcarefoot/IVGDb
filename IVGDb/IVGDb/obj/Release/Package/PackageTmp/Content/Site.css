@@ -104,8 +104,18 @@ textarea {
     background: none;
     box-shadow: none;
 }
+.custom-manage-div {
+    float: left;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+.error-msg {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
 }
 #Footer {
     margin: 0 auto;
@@ -121,6 +131,9 @@ textarea {
 #Login-menu {
     background: #a1a1a1;
 }
+#Login-link {
+    cursor: pointer;
+}
 .login-input {
     border-radius: 4px;
     padding: 5px;
@@ -133,6 +146,11 @@ textarea {
 }
 #Main-screen {
     margin-left: -60px;
+}
+#Message {
+    display: inline-block;
+    padding: 20px 10px;
+    font-style: italic;
 }
 #Middle-strip {
     background: whitesmoke !important;
@@ -149,6 +167,11 @@ textarea {
 #News-section {
     margin-top: 100px;
 }
+    #News-section iframe {
+        -webkit-box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+        box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
+    }
 .no-account-link {
     margin-left: 10px;
 }
@@ -170,6 +193,17 @@ textarea {
     width: 250px;
 }
 #Register-btn { margin-left: 15px; }
+.register-err-msg {
+    padding-left: 20px;
+}
+#Registration-warning {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    border: 2px solid #A2A2A2;
+    border-radius: 20px;
+    background: #DDDDDD;
+}
 #Search-form { float: left; }
 #Search-bar {
     width: 350px;
@@ -194,8 +228,8 @@ textarea {
 #Search-bar-form { float: left; }
 #Search-input {
     float: left;
-    background: #3056BD;
-    color: #FFF;
+    background: #FFF;
+    color: #3a4482;
     border-color: #3056BD;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -213,6 +247,9 @@ textarea {
     #User-profile #User-img {
         background-image: url('http://placehold.it/200x200');
     }
+.user-manage-msg {
+    float: left;
+}
 .write-up-section {
     height: 250px;
     border: 2px solid #A1A1A1;
@@ -221,4 +258,183 @@ textarea {
     background: -o-linear-gradient(#DDDDDD, #A1A1A1);
     background: -moz-linear-gradient(#DDDDDD, #A1A1A1);
     background: linear-gradient(#DDDDDD, #A1A1A1); 
+}
+
+
+
+.results-container{
+    text-align:center;
+}
+
+.results-item{
+    text-align: left;
+    margin: 10px;
+    padding: 5px;
+    width: 475px;
+    border: 1px solid  #bbb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+    display: inline-block;
+    background-color: #242749;
+}
+
+.results-heading{
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    float: left;
+    border-bottom: 2px groove black;
+}
+
+.results-heading-title{
+    font-size:14pt;
+    float: left;
+    max-width: 350px;
+    text-overflow: ellipsis;
+}
+
+.results-console{
+    float:right;
+}
+
+.results-body{
+}
+
+.results-box-art {
+    display: block;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    float:left;
+
+    background: #7d7e7d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+}
+
+.results-box-art img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.results-info{
+    width: 300px;
+    height: 150px;
+    float: left;
+    background-color: #DEDEDE;
+    border-bottom-right-radius: 15px;
+}
+
+.results-info-details {
+    padding: 10px;
+    width: 300px;
+    float: left;
+}
+
+.results-rating {
+    width: 300px;
+    height: 50px;
+    background-color:darkgray;
+    float: left;
+    text-align: center;
+}
+
+.results-rating-text{
+    position: absolute;
+    color: white;
+    display: inline-block;
+}
+
+.form-add-game{
+    width: 50%;
+}
+
+.game-container{
+    width: 100%;
+}
+
+.game-page-box-art {
+    display: block;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    float:left;
+
+    background: #7d7e7d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+
+}
+
+.game-page-box-art img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.game-information-container{
+    height: 350px;
+    width:auto;
+    overflow:hidden;
+    background-color: gray;
+    border-left: 3px solid lightgray;
+}
+
+.game-information{
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.game-information-synopsis{
+    padding: 5px;
+    height: 250px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.navbar-brand{
+    font-size: 20pt;
+    font-weight: 500;
+}
+
+.game-controls{
+    float: right;
+}
+
+.console-checkbox{
+    width: 200px;
+    border-radius: 2px;
+    float: left;
+    display: inline-block;
+}
+
+.console-checkbox input[type="checkbox"]{
+    background-color: pink;
 }

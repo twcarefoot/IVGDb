@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="bin/IVGDb.dll">
-      <publishTime>11/16/2014 17:54:52</publishTime>
+      <publishTime>11/23/2014 19:05:26</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>10/19/2014 14:07:22</publishTime>
@@ -101,7 +101,106 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>11/16/2014 17:53:48</publishTime>
+      <publishTime>11/23/2014 17:32:02</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>11/22/2014 10:34:01</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>10/19/2014 14:07:24</publishTime>
@@ -134,10 +233,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 13:45:33</publishTime>
     </File>
     <File Include="IVGDb.edmx.diagram">
-      <publishTime>10/28/2014 19:23:28</publishTime>
+      <publishTime>11/23/2014 19:04:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/19/2014 14:07:25</publishTime>
+      <publishTime>11/22/2014 10:34:02</publishTime>
+    </File>
+    <File Include="Scripts/additional-methods.min.js">
+      <publishTime>11/22/2014 10:34:01</publishTime>
     </File>
     <File Include="Scripts/bootstrap-responsive.min.css">
       <publishTime>10/19/2014 14:07:21</publishTime>
@@ -150,6 +252,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/IVGDbScripts/CarouselScript.js">
       <publishTime>11/04/2014 16:56:40</publishTime>
+    </File>
+    <File Include="Scripts/IVGDbScripts/DateTimePicker.js">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Scripts/IVGDbScripts/ivgdbscripts.js">
+      <publishTime>11/23/2014 18:09:47</publishTime>
     </File>
     <File Include="Scripts/IVGDbScripts/jqeasy.dropdown.js">
       <publishTime>10/25/2014 13:49:55</publishTime>
@@ -168,6 +276,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
       <publishTime>10/19/2014 14:07:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.js">
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.min.js">
+      <publishTime>11/22/2014 10:34:01</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>10/19/2014 14:07:21</publishTime>
@@ -191,43 +305,124 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>10/19/2014 14:07:21</publishTime>
+      <publishTime>11/22/2014 10:34:01</publishTime>
+    </File>
+    <File Include="Views/Account/ConfirmEmail.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPassword.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/SendCode.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/VerifyCode.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/_ChangePasswordPartial.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/_RemoveAccountPartial.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Account/_SetPasswordPartial.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
+    <File Include="Views/Home/Banned.cshtml">
+      <publishTime>11/23/2014 14:55:08</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/16/2014 14:16:36</publishTime>
+      <publishTime>11/22/2014 16:04:13</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>10/18/2014 12:46:52</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/04/2014 20:56:39</publishTime>
+      <publishTime>11/22/2014 13:55:57</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>11/16/2014 17:54:37</publishTime>
+      <publishTime>11/22/2014 13:57:48</publishTime>
     </File>
     <File Include="Views/Shared/_NewsFeed.cshtml">
       <publishTime>11/04/2014 18:18:05</publishTime>
     </File>
     <File Include="Views/Shared/_SearchBar.cshtml">
-      <publishTime>11/04/2014 20:01:32</publishTime>
+      <publishTime>11/22/2014 10:34:02</publishTime>
     </File>
     <File Include="Views/User/Manage.cshtml">
-      <publishTime>11/16/2014 16:26:25</publishTime>
+      <publishTime>11/23/2014 17:46:37</publishTime>
     </File>
     <File Include="Views/User/Register.cshtml">
-      <publishTime>10/28/2014 19:23:28</publishTime>
+      <publishTime>11/22/2014 13:45:31</publishTime>
+    </File>
+    <File Include="Views/VideoGame/AddNewGame.cshtml">
+      <publishTime>11/23/2014 18:09:47</publishTime>
+    </File>
+    <File Include="Views/VideoGame/DeleteGame.cshtml">
+      <publishTime>11/23/2014 14:20:11</publishTime>
+    </File>
+    <File Include="Views/VideoGame/EditGame.cshtml">
+      <publishTime>11/23/2014 18:09:47</publishTime>
     </File>
     <File Include="Views/VideoGame/Index.cshtml">
       <publishTime>10/25/2014 14:48:58</publishTime>
     </File>
+    <File Include="Views/VideoGame/Results.cshtml">
+      <publishTime>11/23/2014 14:20:11</publishTime>
+    </File>
     <File Include="Views/VideoGame/ShowAllGames.cshtml">
-      <publishTime>10/28/2014 19:23:20</publishTime>
+      <publishTime>11/23/2014 14:20:11</publishTime>
     </File>
     <File Include="Views/VideoGame/ShowGame.cshtml">
-      <publishTime>10/28/2014 19:27:07</publishTime>
+      <publishTime>11/23/2014 14:24:27</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/19/2014 14:07:21</publishTime>
@@ -236,7 +431,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2014 14:07:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/28/2014 19:23:28</publishTime>
+      <publishTime>11/23/2014 18:14:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -7,15 +7,12 @@
       <Diagram DiagramId="60648c1b39ee43d5913f2f6f47e2ffdb" Name="Diagram1">
         <EntityTypeShape EntityType="ivgdb_Model.Console" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.GamesFor" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ivgdb_Model.Rating" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.Role" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.User" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.UsersRole" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ivgdb_Model.VideoGame" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="ivgdb_Model.FK_GamesFor_ConsoleID" ManuallyRouted="false" />
         <AssociationConnector Association="ivgdb_Model.FK_GamesFor_GameID" ManuallyRouted="false" />
-        <AssociationConnector Association="ivgdb_Model.FK_Rating_Game" ManuallyRouted="false" />
-        <AssociationConnector Association="ivgdb_Model.FK_Rating_User" ManuallyRouted="false" />
         <AssociationConnector Association="ivgdb_Model.FK_UsersRoles_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="ivgdb_Model.FK_UsersRoles_Users" ManuallyRouted="false" />
       </Diagram>

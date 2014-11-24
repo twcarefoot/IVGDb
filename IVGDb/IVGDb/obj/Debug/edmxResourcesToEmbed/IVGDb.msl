@@ -18,15 +18,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ratings">
-      <EntityTypeMapping TypeName="ivgdb_Model.Rating">
-        <MappingFragment StoreEntitySet="Rating">
-          <ScalarProperty Name="FKUserID" ColumnName="FKUserID" />
-          <ScalarProperty Name="FKGameID" ColumnName="FKGameID" />
-          <ScalarProperty Name="Rating1" ColumnName="Rating" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="ivgdb_Model.Role">
         <MappingFragment StoreEntitySet="Role">

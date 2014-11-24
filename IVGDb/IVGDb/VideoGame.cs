@@ -17,7 +17,6 @@ namespace IVGDb
         public VideoGame()
         {
             this.GamesFors = new HashSet<GamesFor>();
-            this.Ratings = new HashSet<Rating>();
         }
     
         public int GameID { get; set; }
@@ -30,6 +29,5 @@ namespace IVGDb
         public string Synopsis { get; set; }
     
         public virtual ICollection<GamesFor> GamesFors { get; set; }
-        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }
