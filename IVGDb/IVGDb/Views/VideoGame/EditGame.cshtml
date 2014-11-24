@@ -16,12 +16,14 @@
         {
             @Html.HiddenFor(m => m.GameID);
             <div class="col-md-2">@Html.LabelFor(m => m.Title)</div>
-            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { @placeholder = "Title of game...", @value = Model.Title })</div>
+            <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { @placeholder = "Title of game..."})</div>
             <div class="col-md-2">@Html.LabelFor(m => m.Developer)</div>
             <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Developer, new { @placeholder = "Development studio..." })</div>
             <div class="col-md-2">@Html.LabelFor(m => m.Publisher)</div>
             <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Publisher, new { @placeholder = "Publishing company..." })</div>
-            
+            <div class="col-md-2">@Html.LabelFor(m => m.Synopsis)</div>
+            <div class="col-md-10 registration-section">@Html.TextAreaFor(m => m.Synopsis, new { @placeholder = "A Brief Game Synopsis..." })</div>
+
 
             <div class="col-md-2">Consoles:</div>
             <div class="col-md-10">

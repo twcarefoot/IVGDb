@@ -50,6 +50,7 @@ namespace IVGDb.Models
                 newGame.Developer = newGameModel.Developer;
                 newGame.ReleaseDate = newGameModel.ReleaseDate;
                 newGame.BoxArtLink = newGameModel.BoxArtLink;
+                newGame.Synopsis = newGameModel.Synopsis;
                 if (newGame.Title != null)
                 {
                     db.VideoGames.Add(newGame);
@@ -97,6 +98,7 @@ namespace IVGDb.Models
                 updatingGame.Developer = editGame.Developer;
                 updatingGame.ReleaseDate = editGame.ReleaseDate;
                 updatingGame.BoxArtLink = editGame.BoxArtLink;
+                updatingGame.Synopsis = editGame.Synopsis;
                 if (editGame.Title != null)
                 {
                     //Clear the database with all console entries

@@ -9,15 +9,20 @@
 <h2>Add Game To IVGDb Database</h2>
 
 <div class="results-container">
-    @using (Html.BeginForm("AddNewGame", "VideoGame", FormMethod.Post))
-    {      
-        <div class="col-md-2">@Html.LabelFor(m => m.Title)</div>
-        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { @placeholder = "Title of game..." })</div>
+    @using (Html.BeginForm("AddNewGame", "VideoGame", FormMethod.Post, new { id = "AddNewGame-form" }))
+    {
+        <div class="error-msg text-warning">
+            @Html.ValidationMessage("AddNewGameError")
+        </div>
+        <div class="col-md-2">@Html.LabelFor(m => m.Title)</div><span class="error-msg newGame-err-msg" id="GameTitleErr"></span>
+        <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Title, new { id = "NewGame-title", @placeholder = "Title of game..." })</div>
+        
         <div class="col-md-2">@Html.LabelFor(m => m.Developer)</div>
         <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Developer, new { @placeholder = "Development studio..." })</div>
         <div class="col-md-2">@Html.LabelFor(m => m.Publisher)</div>
         <div class="col-md-10 registration-section">@Html.TextBoxFor(m => m.Publisher, new {@placeholder = "Publishing company..." })</div>
-        <div class="col-md-2">@Html.LabelFor(m => m.ReleaseDate)</div>
+        <div class="col-md-2">@Html.LabelFor(m => m.Synopsis)</div>
+        <div class="col-md-10 registration-section">@Html.TextAreaFor(m => m.Synopsis, new { @placeholder = "A Brief Game Synopsis..." })</div>
 
     <div class ="col-md-10 registration-section">
             @for (int i = 0; i < Model.consolesList.Count; i++)

@@ -88,6 +88,11 @@ namespace IVGDb.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (newGame.Title == null)
+                {
+                    ModelState.AddModelError("GameNameErr", "Games require a title.");
+                    return RedirectToAction("AddNewGame", "VideoGame");
+                }
                 int newGameID = GameConsoleViewModel.AddNewGame(newGame);
                 return RedirectToAction("ShowGame", new
                 {
